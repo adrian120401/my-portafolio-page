@@ -6,7 +6,7 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "Adriandelosreyes",
+    default: "AdriandelosReyes",
     template: "%s | adriandelosreyes",
   },
   description: "Backend developer",
@@ -16,13 +16,6 @@ export const metadata: Metadata = {
       "Backend developer",
     url: "https://adriandelosreyes.vercel.app/",
     siteName: "adriandelosreyes",
-    images: [
-      {
-        url: "https://chronark.com/og.png",
-        width: 1920,
-        height: 1080,
-      },
-    ],
     locale: "en-US",
     type: "website",
   },
@@ -38,7 +31,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    shortcut: "/favicon.png",
+    shortcut: "/coding.png",
   },
 };
 const inter = Inter({
