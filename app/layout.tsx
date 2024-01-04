@@ -6,16 +6,16 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "Adriandelosreyes",
+    template: "%s | adriandelosreyes",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Backend developer",
   openGraph: {
-    title: "chronark.com",
+    title: "adriandelosreyes",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Backend developer",
+    url: "https://adriandelosreyes.vercel.app/",
+    siteName: "adriandelosreyes",
     images: [
       {
         url: "https://chronark.com/og.png",
@@ -36,10 +36,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  twitter: {
-    title: "Chronark",
-    card: "summary_large_image",
   },
   icons: {
     shortcut: "/favicon.png",
