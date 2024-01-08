@@ -1,8 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
+import { AboutMe } from "./components/about";
 /* import Me from "../public/me.jpeg"
 import Image from "next/image"; */
+
 
 const navigation = [
   { name: "Projects", href: "/projects" },
@@ -11,7 +13,7 @@ const navigation = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+    <div className="flex flex-col items-center justify-center w-screen h-screen bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
@@ -38,11 +40,7 @@ export default function Home() {
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in mx-[2rem] lg:mx-[8rem]">
-        <h2 className="text-sm text-zinc-500 ">
-          I am a passionate full-stack developer with a strong focus on backend development, dedicated to my ongoing professional growth. My love for coding is complemented by a fervent desire to make a significant contribution to the success of every project I engage with
-        </h2>
-      </div>
+      <AboutMe />
     </div>
   );
 
