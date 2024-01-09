@@ -12,7 +12,7 @@
   transition: filter 0.3s ease-in-out;
 }
 
-.icon-container:hover {
+.icon-container:hover, .link-project:hover {
   filter: brightness(1.1);
   transform: scale(1.1);
 }

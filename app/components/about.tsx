@@ -12,7 +12,7 @@ export const AboutMe: React.FC = () => {
    and delivering exceptional results in the world of software development.`
 
     return (
-        <div className="my-16 text-center animate-fade-in mx-[2rem] lg:mx-[8rem]">
+        <div className="mt-16 text-center animate-fade-in mx-[2rem] lg:mx-[8rem]">
           <h2 className="text-sm text-zinc-500 ">
             {about}
           </h2>
