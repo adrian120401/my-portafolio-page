@@ -8,3 +8,11 @@
   }
 } 
 
+.icon-container {
+  transition: filter 0.3s ease-in-out;
+}
+
+.icon-container:hover {
+  filter: brightness(1.1);
+  transform: scale(1.1);
+}
