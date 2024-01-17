@@ -2,9 +2,11 @@
 import { ArrowLeft, Eye, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { BadgeAnimated } from "@/app/components/BadgeAnimated";
 
 type Props = {
 	project: {
+		work?: boolean;
 		url?: string;
 		title: string;
 		description: string;
@@ -90,9 +92,15 @@ export const Header: React.FC<Props> = ({ project/* , views */ }) => {
 						<h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
 							{project.title}
 						</h1>
+
 						<p className="mt-6 text-lg leading-8 text-zinc-300">
 							{project.description}
 						</p>
+						{project.work &&
+							<div className="mt-3">
+								<BadgeAnimated text="Real Work"></BadgeAnimated>
+							</div>
+						}
 					</div>
 
 					<div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">

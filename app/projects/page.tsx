@@ -4,20 +4,19 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
+import { BadgeAnimated } from "../components/BadgeAnimated";
 
-
-export const revalidate = 60;
 export default async function ProjectsPage() {
 
+  const toShow = ["pov", "trekking-app", "crazy-grow-shop", "doggys-house"]
+  const featured = allProjects.filter((project) => toShow.includes(project.slug))!.sort((a, b) => toShow.indexOf(a.slug) - toShow.indexOf(b.slug));;
 
-  const featured = allProjects.find((project) => project.slug === "pov")!;
-  const featured2 = allProjects.find((project) => project.slug === "trekking-app")!;
+  console.log(featured[1].work)
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
       (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== featured2.slug
+        !featured.includes(project)
     )
     .sort(
       (a, b) =>
@@ -39,12 +38,14 @@ export default async function ProjectsPage() {
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
-          {[featured , featured2 ].map((project) => (
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 md:grid-cols-2">
+          {featured.map((project) => (
               <Card key={project.slug}>
                 <Link href={`/projects/${project.slug}`}>
                   <article className="flex flex-col w-full h-full p-4 md:p-8">
-                    <img src={project.img} className="rounded-lg object-cover w-full h-[80%]"></img>
+                    <div className="flex w-full h-[80%]">
+                      <img src={project.img} className="rounded-lg object-cover w-full h-full"></img>
+                    </div>
                     <div className="flex items-center justify-between gap-2 mt-2">
                       <div className="text-xs text-zinc-100">
                         {project.date ? (
@@ -56,6 +57,9 @@ export default async function ProjectsPage() {
                         ) : (
                           <span>SOON</span>
                         )}
+                      </div>
+                      <div className={`flex items-center ${project.work ? 'visible' : 'invisible'}`}>
+                        <BadgeAnimated text="Real Work"></BadgeAnimated>
                       </div>
                     </div>
                     <h2
