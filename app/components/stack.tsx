@@ -1,6 +1,5 @@
 "use client";
 import { icons } from "@/public/StackIcons/Export";
-import Image from "next/image";
 
 export const Stack: React.FC = () => {
 
@@ -14,7 +13,7 @@ export const Stack: React.FC = () => {
   }
     return (
         <div className="my-16 animate-fade-in mx-[2rem] lg:mx-[4rem]">
-          <h2 className="text-sm text-zinc-500">
+          <h2 className="text-sm text-zinc-500 text-start">
             Tech Stack
           </h2>
           <div className="grid md:grid-cols-4 grid-cols-2 justify-items-center lg:mx-[6rem]">
