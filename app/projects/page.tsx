@@ -44,7 +44,8 @@ export default async function ProjectsPage() {
               <Card key={project.slug}>
                 <Link href={`/projects/${project.slug}`}>
                   <article className="flex flex-col w-full h-full p-4 md:p-8">
-                    <div className="flex items-center justify-between gap-2">
+                    <img src={project.img} className="rounded-lg object-cover w-full h-[80%]"></img>
+                    <div className="flex items-center justify-between gap-2 mt-2">
                       <div className="text-xs text-zinc-100">
                         {project.date ? (
                           <time dateTime={new Date(project.date).toISOString()}>
@@ -63,7 +64,7 @@ export default async function ProjectsPage() {
                     >
                       {project.title}
                     </h2>
-                    <p className="line-clamp-4 my-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                    <p className="line-clamp-2 my-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 pb-[15px]">
                       {project.description}
                     </p>
                     <p className="text-zinc-200 hover:text-zinc-50">
