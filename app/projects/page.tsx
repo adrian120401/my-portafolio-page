@@ -11,7 +11,6 @@ export default async function ProjectsPage() {
   const toShow = ["pov", "trekking-app", "crazy-grow-shop", "doggys-house"]
   const featured = allProjects.filter((project) => toShow.includes(project.slug))!.sort((a, b) => toShow.indexOf(a.slug) - toShow.indexOf(b.slug));;
 
-  console.log(featured[1].work)
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(

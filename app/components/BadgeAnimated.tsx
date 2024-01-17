@@ -4,13 +4,10 @@ interface BadgeProps {
 }
 
 export const BadgeAnimated = ({text}: BadgeProps) => {
-    return (
-      <span className='relative inline-block overflow-hidden rounded-full p-[1px]'>
-        <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00d4ff_0%,#009fff_50%,#00d4ff_100%)]' />
-        <div className='inline-flex h-full w-full items-center justify-center rounded-full bg-slate-200 px-3 py-1 text-sm font-medium backdrop-blur-3xl'>
-          {text}
-        </div>
-      </span>
-    );
+  return (
+    <span className='inline-flex h-full animate-background-shine cursor-pointer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#FFF,45%,#DDDBDB,55%,#FFF)] bg-[length:250%_100%] px-3 py-1 text-sm text-slate-950 font-medium backdrop-blur-3xl'>
+      {text}
+    </span>
+  );
   };
   

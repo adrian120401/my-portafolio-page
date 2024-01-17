@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Card } from "../components/card";
 import { allProjects } from "contentlayer/generated";
+import { BadgeAnimated } from "./BadgeAnimated";
 
 export const Projects = () => {
     const totalProjects:number | undefined = allProjects.length
@@ -20,7 +21,7 @@ export const Projects = () => {
                 <Card key={project.slug}>
                     <Link href={`/projects/${project.slug}`}>
                     <article className="flex flex-col w-full h-full p-4 md:p-8">
-                        <img src={project.img} className="rounded-lg object-cover w-full"></img>
+                        <img src={project.img} className="rounded-lg object-cover w-full h-[80%]"></img>
                         <div className="flex items-center justify-between gap-2 mt-2">
                         <div className="text-xs text-zinc-100">
                             {project.date ? (
@@ -33,6 +34,9 @@ export const Projects = () => {
                             <span>SOON</span>
                             )}
                         </div>
+                        <div className={`flex items-center ${project.work ? 'visible' : 'invisible'}`}>
+                            <BadgeAnimated text="Real Work"></BadgeAnimated>
+                        </div>
                         </div>
                         <h2
                         id="featured-post"
@@ -40,7 +44,7 @@ export const Projects = () => {
                         >
                         {project.title}
                         </h2>
-                        <p className="line-clamp-2 my-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                        <p className="line-clamp-2 my-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 pb-[25px]">
                         {project.description}
                         </p>
                         <p className="text-zinc-200 hover:text-zinc-50">
