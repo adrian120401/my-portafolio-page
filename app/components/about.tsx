@@ -4,8 +4,8 @@ import { Projects } from "./projects";
 import { ButtonAnimated } from "./ButtonAnimated";
 
 export const AboutMe: React.FC = () => {
-  const cvRoute = "/cvs/My%20Cv.pdf"
-  const cvRouteSpanish = "/cvs/My%20Cv%20Spanish.pdf"
+  const cvRoute = "https://drive.google.com/file/d/1glD-poJKx1t_PI8Pf8cqeOG25K36UJcZ/view?usp=sharing"
+  const cvRouteSpanish = "https://drive.google.com/file/d/1utKJnNkh2rbh5DKwscKywNeZWaepJWqx/view?usp=sharing"
 
   const about = `I am a passionate full-stack 
   developer with a strong focus on backend development, 
@@ -26,8 +26,8 @@ export const AboutMe: React.FC = () => {
           {about}
         </h2>
         <div className="items-center mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 mx-[4rem] md:mx-[8rem] lg:mx-[10rem] xl:mx-[16rem]">
-          <ButtonAnimated text="Download CV" action={() => openPDF(cvRoute)}></ButtonAnimated>
-          <ButtonAnimated text="Descargar CV (Español)" action={() => openPDF(cvRouteSpanish)}></ButtonAnimated>
+          <ButtonAnimated text="Resume" action={() => openPDF(cvRoute)}></ButtonAnimated>
+          <ButtonAnimated text="Resume - Español" action={() => openPDF(cvRouteSpanish)}></ButtonAnimated>
         </div>
         <Projects/>
         <Stack />
