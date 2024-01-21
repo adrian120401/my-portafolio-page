@@ -48,6 +48,9 @@ export const Project = defineDocumentType(() => ({
 		work: {
 			type: "boolean",
 		},
+		doc: {
+			type: "string",
+		}
 	},
 	computedFields,
 }));

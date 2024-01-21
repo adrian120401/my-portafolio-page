@@ -5,8 +5,8 @@ export const Stack: React.FC = () => {
 
   const listIcons = () => {
     return Object.entries(icons).map(([key, value]) => (
-      <div className="icon-container mt-6">
-        <img key={key} src={value.src} alt={key} width={60} height={60} title={key} className="icon-image"/>
+      <div key={key} className="icon-container mt-6">
+        <img  src={value.src} alt={key} width={60} height={60} title={key} className="icon-image"/>
         <p className="text-sm text-zinc-500 mt-1">{key}</p>
       </div>
     ))

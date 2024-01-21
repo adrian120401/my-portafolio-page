@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft, Eye, Github, Linkedin } from "lucide-react";
+import { ArrowLeft,Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { BadgeAnimated } from "@/app/components/BadgeAnimated";
@@ -11,6 +11,7 @@ type Props = {
 		title: string;
 		description: string;
 		repository?: string;
+		doc?:string
 	};
 };
 export const Header: React.FC<Props> = ({ project/* , views */ }) => {
@@ -28,6 +29,12 @@ export const Header: React.FC<Props> = ({ project/* , views */ }) => {
 		links.push({
 			label: "Website",
 			href: project.url,
+		});
+	}
+	if(project.doc) {
+		links.push({
+			label: "API Doc",
+			href: project.doc,
 		});
 	}
 	useEffect(() => {
