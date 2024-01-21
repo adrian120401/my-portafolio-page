@@ -2,6 +2,7 @@
 import { Stack } from "./stack";
 import { Projects } from "./projects";
 import { ButtonAnimated } from "./ButtonAnimated";
+import { ExternalLink } from "lucide-react";
 
 export const AboutMe: React.FC = () => {
   const cvRoute = "https://drive.google.com/file/d/1glD-poJKx1t_PI8Pf8cqeOG25K36UJcZ/view?usp=sharing"
@@ -26,8 +27,14 @@ export const AboutMe: React.FC = () => {
           {about}
         </h2>
         <div className="items-center mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 mx-[4rem] md:mx-[8rem] lg:mx-[10rem] xl:mx-[16rem]">
-          <ButtonAnimated text="Resume" action={() => openPDF(cvRoute)}></ButtonAnimated>
-          <ButtonAnimated text="Resume - Español" action={() => openPDF(cvRouteSpanish)}></ButtonAnimated>
+          <ButtonAnimated onClick={() => openPDF(cvRoute)}>
+            <ExternalLink className="mr-1"/>
+            <p>Resume</p>
+          </ButtonAnimated>
+          <ButtonAnimated onClick={() => openPDF(cvRouteSpanish)}>
+            <ExternalLink className="mr-1"/>
+            <p>Resume-Spanish</p>
+          </ButtonAnimated>
         </div>
         <Projects/>
         <Stack />
