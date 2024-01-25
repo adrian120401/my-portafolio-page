@@ -67,7 +67,7 @@ export default async function ProjectsPage() {
                     >
                       {project.title}
                     </h2>
-                    <p className="line-clamp-2 my-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 pb-[15px]">
+                    <p className="line-clamp-2 my-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 pb-[22px]">
                       {project.description}
                     </p>
                     <p className="text-zinc-200 hover:text-zinc-50">
