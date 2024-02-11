@@ -3,6 +3,7 @@ import React from "react";
 import Particles from "./components/particles";
 import Image from 'next/image';
 import { AboutMe } from "./components/about";
+import { ChatMenu } from "./chat"
 /* import Me from '../public/me-modified.png' */
 
 const navigation = [
@@ -43,6 +44,9 @@ export default function Home() {
 
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         <AboutMe />
+        <div>
+          <ChatMenu />
+        </div>
       </div>
     </div>
   );
