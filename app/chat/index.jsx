@@ -1,7 +1,7 @@
 "use client";
-import { sendQuestion } from "./action";
-
-import { useState, useRef } from "react";
+import { startConversation, listener, sendMessage } from "./action";
+import { useState, useEffect, useRef } from "react";
+import { MessageCircle } from "lucide-react";
 
 export const ChatMenu = () => {
     const [showChat, setShowChat] = useState(false);
@@ -9,32 +9,49 @@ export const ChatMenu = () => {
     return(
         <div>
             {showChat ? 
-                <div className="fixed bottom-0 right-4 z-10 mb-3 mw-[440px]">
+                <div className="fixed bottom-0 right-4 z-10 mb-3 chat-container">
                     <Chat />
                 </div>
                 :
                  <button
                     onClick={() => setShowChat(!showChat)}
-                    className="fixed bottom-4 right-4 z-10 px-4 py-2 bg-stone-500 text-white rounded-lg"
+                    className="fixed bottom-4 right-4 z-10 bg-stone-500 text-white rounded-full p-3 mr-3"
                 >
-                 Show Chat
+                 <MessageCircle width={36} height={36}/>
              </button>}
       </div>
     )
 }
 const Chat = () => {
-  const [messages, setMessages] = useState([
-    {
-      id: Math.random().toString(36).slice(2),
-      text: "Ask me anything",
-      owner: "user",
-    },
-    {
-      id: Math.random().toString(36).slice(2),
-      text: "Helloo",
-      owner: "bot",
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
+
+  const [conversationId, setConversationId] = useState("");
+  const [token, setToken] = useState("");
+
+
+  useEffect(() => {
+    const initializeWebSocket = async () => {
+      try {
+        const { streamUrl, conversationId, token } = await startConversation();
+        const webSocket = listener(streamUrl, recieveMessage);
+
+        setConversationId(conversationId)
+        setToken(token)
+
+        return () => {
+          webSocket.close();
+        };
+      } catch (error) {
+        console.error('Error al iniciar la conversación:', error);
+      }
+    };
+
+    initializeWebSocket();
+  }, [])
+
+  const recieveMessage = (message) => {
+    setMessages((messages) => [...messages, message]);
+  }
 
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
@@ -46,27 +63,15 @@ const Chat = () => {
     if (loading) return;
 
     setLoading(true);
-    setMessages((messages) =>
-      messages.concat({
-        id: String(Date.now()),
-        text: question,
-        owner: "user",
-      })
-    );
+    
+    await sendMessage(conversationId, token, question, "user1")
+
     setQuestion("");
 
-    const answer = await sendQuestion(question);
-
-    setMessages((messages) =>
-      messages.concat({
-        id: String(Date.now()),
-        text: answer,
-        owner: "bot",
-      })
-    );
-
     setLoading(false);
+
   };
+
   return (
     <section>
       <div className="flex flex-col gap-4 m-auto border border-neutral-500/20 p-4 rounded-md mr-4" style={{backgroundColor: 'rgb(0,0,0,0.9)'}}>
@@ -78,7 +83,7 @@ const Chat = () => {
             <div
               key={message.id}
               className={`p-4 max-w-[80%] rounded-3xl text-white ${
-                message.owner === "user"
+                message.owner === "bot"
                   ? "bg-zinc-600 self-start rounded-bl-none"
                   : "bg-zinc-500 self-end rounded-br-none"
               }`}
