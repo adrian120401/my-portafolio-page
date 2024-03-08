@@ -115,7 +115,6 @@ module.exports = {
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
-		require("tailwindcss-debug-screens"),
-		require('@tailwindcss/line-clamp'),
+		require("tailwindcss-debug-screens")
 	],
 };

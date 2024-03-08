@@ -8,6 +8,29 @@
   }
 } 
 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFF;
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .icon-container {
   transition: filter 0.3s ease-in-out;
 }
@@ -19,4 +42,5 @@
 
 .chat-container {
   max-width: 440px;
+  width: 440px;
 }

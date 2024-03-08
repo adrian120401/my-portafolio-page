@@ -37,7 +37,7 @@ export default function Home() {
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
 
-        <Image src="https://res.cloudinary.com/diwrns9sr/image/upload/v1706045683/me-modified_zwridx.png" alt="Me" className="w-[25%] md:w-[15%] mb-4 mt-2 animate-fade-in" width={'1000'} height={'1000'} />
+        <Image src="https://res.cloudinary.com/diwrns9sr/image/upload/v1709876243/portafolio/me.png" alt="Me" className="w-[25%] md:w-[15%] mb-4 mt-2 animate-fade-in" width={'1000'} height={'1000'} />
         <h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-6xl lg:text-8xl whitespace-nowrap bg-clip-text ">
           Adrian de los Reyes
         </h1>
