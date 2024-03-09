@@ -13,13 +13,17 @@ export const ChatMenu = () => {
     return(
         <div>
           {showChat &&
-            <div className="fixed bottom-11 right-10 z-10 mb-3 chat-container">
+            <div className="fixed bottom-14  right-4  z-10 mb-3 chat-container sm:bottom-11 sm:right-10">
                 <Chat handleChat={handleChat} showChat={showChat}/>
             </div>
           }
           <button
             onClick={handleChat}
-            className="fixed bottom-4 right-4 z-10 bg-zinc-500 text-white rounded-full p-3 mr-3 hover:scale-105"
+            className="fixed bottom-4 right-4 z-10  text-white rounded-full p-3
+              animate-background-shine items-center
+              border border-slate-800 bg-[linear-gradient(110deg,rgb(0,0,0),45%,#202020,55%,rgb(0,0,0))]
+              bg-[length:200%_100%]
+              justify-center hover:scale-105 sm:mr-3"
           >
             <MessageCircle width={36} height={36}/>
           </button>
@@ -75,9 +79,8 @@ const Chat = ({handleChat, showChat}) => {
   const container = useRef(null);
   const lastMessageRef = useRef(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
+  const handleMessage = async (question) => {
     if (loading) return;
 
     setLoading(true);
@@ -87,15 +90,22 @@ const Chat = ({handleChat, showChat}) => {
     setQuestion("");
 
     setLoading(false);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await handleMessage(question);
   };
 
   const handleRecommendation = (recommendation) =>{
     console.log(recommendation)
+    handleMessage(recommendation)
+    setRecommended(prev => prev.filter(item => item !== recommendation))
   }
 
   return (
     <section>
-      <div className="flex flex-col gap-4 m-auto border border-neutral-500/20 p-4 rounded-md mr-4" style={{backgroundColor: 'rgb(0,0,0,0.9)'}}>
+      <div className="flex flex-col gap-2 m-auto border border-neutral-500/20 p-4 rounded-md mr-4 bg-zinc-900 bg-opacity-95">
         <div className="border-b-[1px] border-zinc-500 text-end">
           <button onClick={handleChat}>
             <X className="text-zinc-500 hover:scale-110"/>
@@ -104,14 +114,14 @@ const Chat = ({handleChat, showChat}) => {
         <div className="flex overflow-x-auto">
           {recommended.map((recommendation, i) => (
             <button onClick={() => handleRecommendation(recommendation)} 
-            className=" text-white bg-zinc-500 rounded-2xl px-3 mr-3 mb-1 py-1 whitespace-nowrap" key={i}>
+            className=" text-zinc-600 bg-zinc-100 rounded-2xl px-3 mr-3 mb-1 py-1 whitespace-nowrap hover:bg-zinc-300" key={i}>
               <p>{recommendation}</p>
             </button>
           ))}
         </div>
         <div
           ref={container}
-          className="flex flex-col gap-4 h-[55vh] overflow-y-auto"
+          className="flex flex-col gap-4 h-[60vh] overflow-y-auto"
         >
           {messages.map((message, index) => (
             <div
