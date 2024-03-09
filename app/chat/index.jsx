@@ -21,7 +21,7 @@ export const ChatMenu = () => {
             onClick={handleChat}
             className="fixed bottom-4 right-4 z-10  text-white rounded-full p-3
               animate-background-shine items-center
-              border border-slate-800 bg-[linear-gradient(110deg,rgb(0,0,0),45%,#202020,55%,rgb(0,0,0))]
+              border border-slate-800 bg-[linear-gradient(110deg,rgb(24,24,27),45%,#303030,55%,rgb(24,24,27))]
               bg-[length:200%_100%]
               justify-center hover:scale-105 sm:mr-3"
           >
