@@ -98,7 +98,6 @@ const Chat = ({handleChat, showChat}) => {
   };
 
   const handleRecommendation = (recommendation) =>{
-    console.log(recommendation)
     handleMessage(recommendation)
     setRecommended(prev => prev.filter(item => item !== recommendation))
   }
