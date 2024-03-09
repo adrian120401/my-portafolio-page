@@ -1,4 +1,3 @@
-'use server'
 export const startConversation = async() => {
 
     const secret = process.env.BOT_SECRET
