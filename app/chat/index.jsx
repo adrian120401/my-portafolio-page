@@ -42,7 +42,8 @@ const Chat = ({handleChat, showChat}) => {
     let webSocket
     const initializeWebSocket = async () => {
       try {
-        const { streamUrl, conversationId, token } = await startConversation();
+        const response = await fetch('/api/route').then(res => res.json())
+        const { streamUrl, conversationId, token } = response;
         webSocket = listener(streamUrl, recieveMessage);
 
         setConversationId(conversationId)

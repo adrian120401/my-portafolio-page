@@ -1,25 +1,3 @@
-'use server'
-export const startConversation = async() => {
-
-    const secret = process.env.BOT_SECRET
-
-    const response = await fetch(`https://directline.botframework.com/v3/directline/conversations`, 
-    {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer 8nqDQqtn-Ow.js9O4uY_MfpfWsQ3SyYieynfg8P17EU1E4OWWloBQlY`
-        }
-    }).then(res => res.json())
-
-    const streamUrl = response.streamUrl
-
-    const conversationId = response.conversationId
-
-    const token = response.token
-
-    return {streamUrl, conversationId, token}
-}
-
 export const sendMessage = async(conversationId, token, text, id) => {
     const data = {
         "locale": "en-EN",
