@@ -95,6 +95,10 @@ const Chat = ({handleChat, showChat}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(recommended.includes(question)){
+      const recommendedFiltered = recommended.filter(item => item !== question)
+      setRecommended(recommendedFiltered)
+    }
     await handleMessage(question);
   };
 
