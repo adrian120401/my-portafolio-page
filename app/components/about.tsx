@@ -8,14 +8,7 @@ export const AboutMe: React.FC = () => {
   const cvRoute = "https://drive.google.com/file/d/1glD-poJKx1t_PI8Pf8cqeOG25K36UJcZ/view?usp=sharing"
   const cvRouteSpanish = "https://drive.google.com/file/d/1utKJnNkh2rbh5DKwscKywNeZWaepJWqx/view?usp=sharing"
 
-  const about = `I am a passionate full-stack 
-  developer with a strong focus on backend development, 
-  dedicated to my ongoing professional growth. My love for coding 
-  is complemented by a fervent desire to make a significant contribution 
-  to the success of every project I engage with. My goal is to create a lasting impact, 
-  delivering robust and efficient solutions that drive business achievements. 
-  I am always eager to learn and enhance my skills, committed to continuous development,
-   and delivering exceptional results in the world of software development.`
+  const about = `I'm a dynamic full-stack developer with a passion for backend development, driven by a relentless pursuit of growth. I love the challenge of creating impactful solutions that drive projects to success. My mission is to leave a lasting impression by delivering robust and efficient software solutions that elevate business performance. Constantly hungry for knowledge, I'm dedicated to honing my skills and consistently delivering exceptional results in the ever-evolving realm of software development.`
 
   const openPDF = (route:string) => {
     window.open(route, "_blank");
