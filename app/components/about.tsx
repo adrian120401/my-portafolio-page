@@ -5,8 +5,8 @@ import { ButtonAnimated } from "./ButtonAnimated";
 import { ExternalLink } from "lucide-react";
 
 export const AboutMe: React.FC = () => {
-  const cvRoute = "https://drive.google.com/file/d/1B3n_y9Qoro4FpCoeA303Bro5AwBWYOwW/view?usp=sharing"
-  const cvRouteSpanish = "https://drive.google.com/file/d/1mO2YYOK7af0WLU902BQeTyFHM_KTh_nm/view?usp=sharing"
+  const cvRoute = "https://drive.google.com/file/d/1xyKX1cfgaBxM_ngPkUG-tzar7R3Riu4A/view?usp=sharing"
+  const cvRouteSpanish = "https://drive.google.com/file/d/1GI86Y5ieuDAgxIdSL6uxYUFsmjnE3Wij/view?usp=sharing"
 
   const about = `I'm a dynamic full-stack developer with a passion for backend development, driven by a relentless pursuit of growth. I love the challenge of creating impactful solutions that drive projects to success. My mission is to leave a lasting impression by delivering robust and efficient software solutions that elevate business performance. Constantly hungry for knowledge, I'm dedicated to honing my skills and consistently delivering exceptional results in the ever-evolving realm of software development.`
 
