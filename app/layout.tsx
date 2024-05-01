@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "AdriandelosReyes",
     template: "%s | adriandelosreyes",
   },
-  description: "Backend developer",
+  description: "Adrian de los Reyes portafolio, as a backend developer I have a lot of project to show you, come and see my work",
   openGraph: {
     title: "adriandelosreyes",
     description:
@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     siteName: "adriandelosreyes",
     locale: "en-US",
     type: "website",
+  },
+  verification: {
+    google: "B9XTIQbzFtBqYUQc_f8qTbTMMDBl-THrDT5fpnuyQOI",
   },
   robots: {
     index: true,
@@ -52,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
+        <meta name="google-site-verification" content="B9XTIQbzFtBqYUQc_f8qTbTMMDBl-THrDT5fpnuyQOI"></meta>
         <Analytics />
       </head>
       <body
