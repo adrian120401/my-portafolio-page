@@ -6,7 +6,7 @@ import { BadgeAnimated } from "./BadgeAnimated";
 
 export const Projects = () => {
     const totalProjects:number | undefined = allProjects.length
-    const toShow = ["pov", "trekking-app", "crazy-grow-shop", "doggys-house"]
+    const toShow = ["la-mision-inscription", "trekking-app", "pov", "gestion-360"]
     const featured = allProjects.filter((project) => toShow.includes(project.slug))!.sort((a, b) => toShow.indexOf(a.slug) - toShow.indexOf(b.slug));;
 
     return(
@@ -21,7 +21,7 @@ export const Projects = () => {
                 <Card key={project.slug}>
                     <Link href={`/projects/${project.slug}`}>
                     <article className="flex flex-col w-full h-full p-4 md:p-8">
-                        <img src={project.img} className="rounded-lg object-cover w-full h-[80%]"></img>
+                        <img src={project.img} className="rounded-lg object-cover max-h-56  w-full h-[80%]"></img>
                         <div className="flex items-center justify-between gap-2 mt-2">
                         <div className="text-xs text-zinc-100">
                             {project.date ? (
