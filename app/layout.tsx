@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   verification: {
-    google: "B9XTIQbzFtBqYUQc_f8qTbTMMDBl-THrDT5fpnuyQOI",
+    google: "QQfzSez_Ke5ABriqhqd-LrL2b_8liIiAJS9TU2GCqNc",
   },
   robots: {
     index: true,
@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
-        <meta name="google-site-verification" content="B9XTIQbzFtBqYUQc_f8qTbTMMDBl-THrDT5fpnuyQOI"></meta>
+        <meta name="google-site-verification" content="QQfzSez_Ke5ABriqhqd-LrL2b_8liIiAJS9TU2GCqNc" />
         <Analytics />
       </head>
       <body
