@@ -3,25 +3,16 @@ import React from "react";
 import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import { Article } from "./article";
 import { BadgeAnimated } from "../components/BadgeAnimated";
 
 export default async function ProjectsPage() {
 
-  const toShow = ["pov", "trekking-app", "crazy-grow-shop", "doggys-house"]
-  const featured = allProjects.filter((project) => toShow.includes(project.slug))!.sort((a, b) => toShow.indexOf(a.slug) - toShow.indexOf(b.slug));;
-
-  const sorted = allProjects
-    .filter((p) => p.published)
-    .filter(
-      (project) =>
-        !featured.includes(project)
-    )
-    .sort(
-      (a, b) =>
-        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
-    );
+  allProjects.sort((a, b) => {
+    if (a.date && b.date) {
+      return a.date > b.date ? -1 : 1;
+    }
+    return 0;
+  });
 
   return (
     <div className="relative pb-16">
@@ -38,11 +29,11 @@ export default async function ProjectsPage() {
         <div className="w-full h-px bg-zinc-800" />
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 md:grid-cols-2">
-          {featured.map((project) => (
+          {allProjects.map((project) => (
               <Card key={project.slug}>
                 <Link href={`/projects/${project.slug}`}>
                   <article className="flex flex-col w-full h-full p-4 md:p-8">
-                    <div className="flex w-full h-[80%]">
+                    <div className="flex w-full h-[80%] max-h-56">
                       <img src={project.img} className="rounded-lg object-cover w-full h-full"></img>
                     </div>
                     <div className="flex items-center justify-between gap-2 mt-2">
@@ -80,7 +71,7 @@ export default async function ProjectsPage() {
         </div>
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
+{/*         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
         {sorted.map((project, i) => (
           <div key={project.slug} className={`grid grid-cols-1 gap-4`}>
             <Card>
@@ -88,7 +79,7 @@ export default async function ProjectsPage() {
             </Card>
           </div>
         ))}
-      </div>
+      </div> */}
       </div>
     </div>
   );

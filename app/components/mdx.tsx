@@ -66,7 +66,7 @@ const components = {
 		<Link
 			target="_blank"
 			className={clsx(
-				"font-medium text-zinc-900 underline underline-offset-4",
+				"flex justify-center font-medium text-zinc-900 underline underline-offset-4",
 				className,
 			)}
 			{...props}
