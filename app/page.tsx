@@ -20,7 +20,7 @@ export default function Home() {
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={100}
       />
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center pb-16">
         <nav className="my-16 animate-fade-in">
           <ul className="flex items-center justify-center gap-4">
             {navigation.map((item) => (
@@ -41,6 +41,10 @@ export default function Home() {
         <h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-6xl lg:text-8xl whitespace-nowrap bg-clip-text ">
           Adrian de los Reyes
         </h1>
+
+        <h3 className="z-10 text-lg text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-2xl md:text-2xl lg:text-4xl whitespace-nowrap bg-clip-text ">
+          Software Developer
+        </h3>
 
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         <AboutMe />
