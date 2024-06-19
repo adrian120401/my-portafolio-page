@@ -7,6 +7,7 @@ import { BadgeAnimated } from "@/app/components/BadgeAnimated";
 type Props = {
 	project: {
 		work?: boolean;
+		tags?: string[];
 		url?: string;
 		title: string;
 		description: string;

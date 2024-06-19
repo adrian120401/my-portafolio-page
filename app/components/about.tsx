@@ -31,7 +31,7 @@ export const AboutMe: React.FC = () => {
                 </ButtonAnimated>
             </div>
             <Projects />
-            <Experience />
+            <Experience/>
             {/* <Stack /> */}
         </div>
     );

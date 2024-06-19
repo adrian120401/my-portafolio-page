@@ -9,9 +9,28 @@ import { BadgeAnimated } from '../components/BadgeAnimated';
 export default function ProjectsPage() {
     const [projects, setProjects] = useState(allProjects);
     const [workProjects, setWorkProjects] = useState(false);
+    const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
+
+    const TECHNOLOGIES = Array.from(
+        new Set(
+            allProjects.reduce((techs, project) => {
+                return techs.concat(project.tags || []);
+            }, [] as string[])
+        )
+    );
 
     const handleClick = () => {
         setWorkProjects(!workProjects);
+    };
+
+    const handleTechClick = (tech: string) => {
+        setSelectedTechs((prevTechs) => {
+            if (prevTechs.includes(tech)) {
+                return prevTechs.filter((t) => t !== tech);
+            } else {
+                return [...prevTechs, tech];
+            }
+        });
     };
 
     useEffect(() => {
@@ -22,6 +41,18 @@ export default function ProjectsPage() {
         const projects = allProjects.filter((project) => project.work === true);
         setProjects(projects);
     }, [workProjects]);
+
+    useEffect(() => {
+        console.log(selectedTechs);
+        if (selectedTechs.length > 0) {
+            const filteredProjects = allProjects.filter((project) =>
+                selectedTechs.every((tech) => (project.tags ?? []).includes(tech))
+            );
+            setProjects(filteredProjects);
+        } else {
+            setProjects(allProjects);
+        }
+    }, [selectedTechs]);
 
     projects.sort((a, b) => {
         if (a.date && b.date) {
@@ -46,6 +77,23 @@ export default function ProjectsPage() {
                             <input type="checkbox" className="mr-1" onChange={handleClick} />
                             <BadgeAnimated text="Real Work"></BadgeAnimated>
                         </label>
+                    </div>
+                    <div className="mt-4 flex flex-wrap gap-x-4">
+                        <p className="cursor-pointer flex items-center text-zinc-400">
+                            Technologies:
+                        </p>
+                        {TECHNOLOGIES.map((tech) => (
+                            <label
+                                key={tech}
+                                className="cursor-pointer flex items-center text-zinc-400"
+                                onClick={() => handleTechClick(tech)}
+                            >
+                                <input type="checkbox" className="mr-1" />
+                                <p className="text-zinc-400" onClick={(e) => e.stopPropagation()}>
+                                    {tech}
+                                </p>
+                            </label>
+                        ))}
                     </div>
                 </div>
                 <div className="w-full h-px bg-zinc-800" />
