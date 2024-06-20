@@ -34,25 +34,18 @@ export default function ProjectsPage() {
     };
 
     useEffect(() => {
-        if (!workProjects) {
-            setProjects(allProjects);
-            return;
+        let filteredProjects = allProjects;
+        if (workProjects) {
+            filteredProjects = filteredProjects.filter((project) => project.work === true);
         }
-        const projects = allProjects.filter((project) => project.work === true);
-        setProjects(projects);
-    }, [workProjects]);
-
-    useEffect(() => {
-        console.log(selectedTechs);
         if (selectedTechs.length > 0) {
-            const filteredProjects = allProjects.filter((project) =>
+            filteredProjects = filteredProjects.filter((project) =>
                 selectedTechs.every((tech) => (project.tags ?? []).includes(tech))
             );
-            setProjects(filteredProjects);
-        } else {
-            setProjects(allProjects);
         }
-    }, [selectedTechs]);
+
+        setProjects(filteredProjects);
+    }, [workProjects, selectedTechs]);
 
     projects.sort((a, b) => {
         if (a.date && b.date) {
