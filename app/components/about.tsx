@@ -11,7 +11,7 @@ export const AboutMe: React.FC = () => {
     const cvRouteSpanish =
         'https://drive.google.com/file/d/1nwyuxykiaLoR8iwRJIqD1MriwD1nKuN7/view?usp=sharing';
 
-    const about = `I'm a dynamic full-stack developer with a passion for backend development, driven by a relentless pursuit of growth. I love the challenge of creating impactful solutions that drive projects to success. My mission is to leave a lasting impression by delivering robust and efficient software solutions that elevate business performance. Constantly hungry for knowledge, I'm dedicated to honing my skills and consistently delivering exceptional results in the ever-evolving realm of software development.`;
+    const about = `I'm a full-stack developer with a strong focus on backend, driven by a commitment to growth and impactful solutions. My goal is to create efficient software that enhances business performance. Eager to keep learning, I strive to deliver reliable, high-quality results in every project.`;
 
     const openPDF = (route: string) => {
         window.open(route, '_blank');
@@ -19,7 +19,9 @@ export const AboutMe: React.FC = () => {
 
     return (
         <div className="mt-16 animate-fade-in text-center mx-[2rem] lg:mx-[8rem]">
-            <h2 className="text-sm text-zinc-500">{about}</h2>
+            <div className='max-w-[620px] mx-auto'>
+                <h2 className="text-zinc-200">{about}</h2>
+            </div>
             <div className="items-center mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 mx-[4rem] md:mx-[8rem] lg:mx-[10rem] xl:mx-[16rem]">
                 <ButtonAnimated onClick={() => openPDF(cvRoute)}>
                     <ExternalLink className="mr-1" />
@@ -31,8 +33,8 @@ export const AboutMe: React.FC = () => {
                 </ButtonAnimated>
             </div>
             <Projects />
-            <Experience/>
-            {/* <Stack /> */}
+            <Experience />
+            <Stack />
         </div>
     );
 };

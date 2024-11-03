@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { allProjects } from 'contentlayer/generated';
 import { Navigation } from '../components/nav';
@@ -11,41 +11,47 @@ export default function ProjectsPage() {
     const [workProjects, setWorkProjects] = useState(false);
     const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
 
-    const TECHNOLOGIES = Array.from(
-        new Set(
-            allProjects.reduce((techs, project) => {
-                return techs.concat(project.tags || []);
-            }, [] as string[])
-        )
+    const TECHNOLOGIES = useMemo(
+        () =>
+            Array.from(
+                new Set(
+                    allProjects.reduce(
+                        (techs, project) => (project.tags ? [...techs, ...project.tags] : techs),
+                        [] as string[]
+                    )
+                )
+            ).sort(),
+        [allProjects]
     );
 
-    const handleClick = () => {
-        setWorkProjects(!workProjects);
-    };
+    const handleClick = useCallback(() => {
+        setWorkProjects((prev) => !prev);
+    }, []);
 
-    const handleTechClick = (tech: string) => {
-        setSelectedTechs((prevTechs) => {
-            if (prevTechs.includes(tech)) {
-                return prevTechs.filter((t) => t !== tech);
-            } else {
-                return [...prevTechs, tech];
-            }
-        });
-    };
+    const handleTechClick = useCallback((tech: string) => {
+        setSelectedTechs((prevTechs) =>
+            prevTechs.includes(tech) ? prevTechs.filter((t) => t !== tech) : [...prevTechs, tech]
+        );
+    }, []);
 
     useEffect(() => {
-        let filteredProjects = allProjects;
-        if (workProjects) {
-            filteredProjects = filteredProjects.filter((project) => project.work === true);
-        }
-        if (selectedTechs.length > 0) {
-            filteredProjects = filteredProjects.filter((project) =>
-                selectedTechs.every((tech) => (project.tags ?? []).includes(tech))
-            );
-        }
+        const filterProjects = () => {
+            return allProjects.filter((project) => {
+                if (workProjects && !project.work) {
+                    return false;
+                }
 
-        setProjects(filteredProjects);
-    }, [workProjects, selectedTechs]);
+                if (selectedTechs.length > 0) {
+                    const projectTags = project.tags || [];
+                    return selectedTechs.every((tech) => projectTags.includes(tech));
+                }
+
+                return true;
+            });
+        };
+
+        setProjects(filterProjects());
+    }, [workProjects, selectedTechs, allProjects]);
 
     projects.sort((a, b) => {
         if (a.date && b.date) {
@@ -95,14 +101,16 @@ export default function ProjectsPage() {
                         <Card key={project.slug}>
                             <Link href={`/projects/${project.slug}`}>
                                 <article className="flex flex-col w-full h-full p-4 md:p-8">
-                                    <div className="flex w-full h-[80%] max-h-56">
-                                        <img
-                                            src={project.img}
-                                            className="rounded-lg object-cover w-full h-full"
-                                        ></img>
-                                    </div>
-                                    <div className="flex items-center justify-between gap-2 mt-2">
-                                        <div className="text-xs text-zinc-100">
+                                    {project.img && (
+                                        <div className="flex w-full h-[80%] max-h-56">
+                                            <img
+                                                src={project.img}
+                                                className="rounded-lg object-cover w-full h-full"
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="flex flex-col flex-grow">
+                                        <div className="flex items-center justify-between gap-2 mt-2 text-zinc-100">
                                             {project.date ? (
                                                 <time
                                                     dateTime={new Date(project.date).toISOString()}
@@ -114,27 +122,36 @@ export default function ProjectsPage() {
                                             ) : (
                                                 <span>SOON</span>
                                             )}
+
+                                            <div
+                                                className={`flex items-center ${
+                                                    project.work ? 'visible' : 'invisible'
+                                                }`}
+                                            >
+                                                <BadgeAnimated text="Real Work"></BadgeAnimated>
+                                            </div>
                                         </div>
-                                        <div
-                                            className={`flex items-center ${
-                                                project.work ? 'visible' : 'invisible'
-                                            }`}
+                                        <h2
+                                            id="featured-post"
+                                            className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
                                         >
-                                            <BadgeAnimated text="Real Work"></BadgeAnimated>
+                                            {project.title}
+                                        </h2>
+                                        <div className="flex flex-col flex-grow justify-between">
+                                            {project.img ? (
+                                                <p className="line-clamp-2 mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                                                    {project.description}
+                                                </p>
+                                            ) : (
+                                                <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                                                    {project.description}
+                                                </p>
+                                            )}
+                                            <p className="text-zinc-200 hover:text-zinc-50 mt-4">
+                                                Read more <span aria-hidden="true">&rarr;</span>
+                                            </p>
                                         </div>
                                     </div>
-                                    <h2
-                                        id="featured-post"
-                                        className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
-                                    >
-                                        {project.title}
-                                    </h2>
-                                    <p className="line-clamp-2 my-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 pb-[22px]">
-                                        {project.description}
-                                    </p>
-                                    <p className="text-zinc-200 hover:text-zinc-50">
-                                        Read more <span aria-hidden="true">&rarr;</span>
-                                    </p>
                                 </article>
                             </Link>
                         </Card>
