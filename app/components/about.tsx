@@ -7,9 +7,9 @@ import { Experience } from './experience';
 
 export const AboutMe: React.FC = () => {
     const cvRoute =
-        'https://drive.google.com/file/d/1YTDQwfJRb6Ml2UtgWgtWCNq6fyl4-7SS/view?usp=sharing';
+        'https://drive.google.com/file/d/1ilh5UvBI0IZg7qXbUhitckZgl1Avhcba/view?usp=sharing';
     const cvRouteSpanish =
-        'https://drive.google.com/file/d/1nwyuxykiaLoR8iwRJIqD1MriwD1nKuN7/view?usp=sharing';
+        'https://drive.google.com/file/d/1SelQ1_uiN0UZBivWV30jrgRakpQz-D4x/view?usp=sharing';
 
     const about = `I'm a full-stack developer with a strong focus on backend, driven by a commitment to growth and impactful solutions. My goal is to create efficient software that enhances business performance. Eager to keep learning, I strive to deliver reliable, high-quality results in every project.`;
 
@@ -34,7 +34,7 @@ export const AboutMe: React.FC = () => {
             </div>
             <Projects />
             <Experience />
-            <Stack />
+            {/* <Stack /> */}
         </div>
     );
 };
