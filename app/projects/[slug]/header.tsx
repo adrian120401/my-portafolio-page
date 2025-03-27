@@ -126,7 +126,7 @@ export const Header: React.FC<Props> = ({ project /* , views */ }) => {
                         </div>
                     </div>
                     <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 justify-center">
                             {project.tags?.map((tag) => (
                                 <div key={tag} className="bg-zinc-800 px-2 py-1 rounded-md">
                                     <p className="text-white text-xs">{tag}</p>

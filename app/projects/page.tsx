@@ -11,7 +11,7 @@ export default function ProjectsPage() {
     const [workProjects, setWorkProjects] = useState(false);
     const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
 
-    const TECHNOLOGIES = useMemo(
+/*     const TECHNOLOGIES = useMemo(
         () =>
             Array.from(
                 new Set(
@@ -22,17 +22,17 @@ export default function ProjectsPage() {
                 )
             ).sort(),
         [allProjects]
-    );
+    ); */
 
     const handleClick = useCallback(() => {
         setWorkProjects((prev) => !prev);
     }, []);
 
-    const handleTechClick = useCallback((tech: string) => {
+/*     const handleTechClick = useCallback((tech: string) => {
         setSelectedTechs((prevTechs) =>
             prevTechs.includes(tech) ? prevTechs.filter((t) => t !== tech) : [...prevTechs, tech]
         );
-    }, []);
+    }, []); */
 
     useEffect(() => {
         const filterProjects = () => {
@@ -77,7 +77,7 @@ export default function ProjectsPage() {
                             <BadgeAnimated text="Real Work"></BadgeAnimated>
                         </label>
                     </div>
-                    <div className="mt-4 flex flex-wrap gap-x-4">
+{/*                     <div className="mt-4 flex flex-wrap gap-x-4">
                         <p className="cursor-pointer flex items-center text-zinc-400">
                             Technologies:
                         </p>
@@ -93,7 +93,7 @@ export default function ProjectsPage() {
                                 </p>
                             </label>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
                 <div className="w-full h-px bg-zinc-800" />
                 <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 md:grid-cols-2">
