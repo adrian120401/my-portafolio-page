@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-30T16:49:16.310Z",
+  "browser": "Linux Chromium 1234: WebGL2 context unavailable; real rendering separately verified on Windows Chrome",
+  "results": [
+    {
+      "name": "Spanish browser default",
+      "pass": true
+    },
+    {
+      "name": "English fallback",
+      "pass": true
+    },
+    {
+      "name": "Preference overrides browser",
+      "pass": true
+    },
+    {
+      "name": "Quality weights",
+      "pass": true
+    },
+    {
+      "name": "Excluded language",
+      "pass": true
+    },
+    {
+      "name": "Explicit locale wins",
+      "pass": true
+    },
+    {
+      "name": "Legacy aliases",
+      "pass": true
+    },
+    {
+      "name": "Published cases and sitemap",
+      "pass": true
+    },
+    {
+      "name": "CV links and English content",
+      "pass": true
+    },
+    {
+      "name": "Keyboard controls with supported renderer or static fallback",
+      "pass": true
+    },
+    {
+      "name": "Spanish CV",
+      "pass": true
+    },
+    {
+      "name": "Filters and language route preservation",
+      "pass": true
+    },
+    {
+      "name": "Mobile opt-in and safe fallback",
+      "pass": true
+    },
+    {
+      "name": "No overflow across breakpoints",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion static fallback",
+      "pass": true
+    },
+    {
+      "name": "No-JavaScript content",
+      "pass": true
+    },
+    {
+      "name": "WebGL failure fallback",
+      "pass": true
+    },
+    {
+      "name": "Public repository URLs",
+      "pass": true
+    },
+    {
+      "name": "Accessible pages (axe WCAG AA)",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,36 @@
+---
+title: "Nacho González PF"
+description: "A personalized training platform with separate coach and student experiences, workout planning and progress tracking."
+summary: "From planning a routine to recording what actually happened."
+locale: "en"
+category: "client"
+presentation: "featured"
+published: true
+work: true
+role: "Full Stack Development"
+repositoryVisibility: "private"
+tags: ["Next.js","TypeScript","Firebase","Firestore","Tailwind CSS"]
+featuredOrder: 3
+url: "https://www.nachogonzalezpf.uy/"
+img: "/projects/nacho-gonzalez-pf.jpg"
+---
+
+## The challenge
+
+Turn personalized training into a workflow that a coach can manage and a student can follow on mobile. Plans, completed sessions and progress need to remain distinct and understandable.
+
+## My contribution
+
+- Built coach and student experiences with authentication and role-based access.
+- Implemented programs, workout templates, scheduling, session recording and progress views.
+- Added check-ins, feedback and alerts to support ongoing follow-up.
+
+## Engineering decisions
+
+- Next.js and TypeScript organize the interface and server endpoints; Firebase supports authentication, Firestore and private media storage.
+- Operational data is scoped to organizations. Planned snapshots and actual exercise results are stored separately.
+- Completed sessions are immutable. Firestore rules and domain tests cover permissions and training behavior.
+
+## Outcome
+
+Delivered a connected training workflow rather than a presentation-only website. The linked public entry point introduces the coach; operational screens require the appropriate role.

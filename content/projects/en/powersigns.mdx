@@ -1,0 +1,37 @@
+---
+title: "PowerSigns"
+description: "A native desktop experiment that turns hand gestures into fire, lightning and energy effects in real time."
+summary: "Physical gestures meet a local graphics pipeline."
+locale: "en"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+role: "Personal experiment"
+repositoryVisibility: "public"
+tags: ["Python","OpenCV","MediaPipe","PySide6","OpenGL"]
+video: "/demos/powersigns.mp4"
+videoPoster: "/demos/powersigns.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_computervision-python-opengl-activity-7494511969002209280-oDW0"
+repository: "https://github.com/adrian120401/powersigns"
+---
+
+## The challenge
+
+Explore how webcam hand tracking can control a visually expressive desktop application without a browser or a web server.
+
+## My contribution
+
+- Built hand tracking, gesture interpretation and a native desktop interface.
+- Connected fire, lightning and plasma effects to continuous gesture states.
+- Added smoothing and short tracking-loss grace periods to keep interaction stable.
+
+## Engineering decisions
+
+- OpenCV captures frames; MediaPipe provides hand landmarks; PySide6 hosts the interface; OpenGL renders the effects.
+- Timestamped snapshots connect capture, tracking, simulation and rendering without blocking one another.
+- The fire effect combines a density/flow atlas with procedural shading. Other effects use procedural rendering.
+
+## Outcome
+
+An experimental local Windows application. It requires a webcam and OpenGL 3.3. It is not a production client delivery or a web demo.

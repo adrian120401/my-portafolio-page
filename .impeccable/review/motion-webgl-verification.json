@@ -1,0 +1,10 @@
+{
+  "date": "2026-09-30T18:40:30.333Z",
+  "browser": "Windows Chrome with WebGL2",
+  "deferredUntilLab": true,
+  "poseChangesPixels": true,
+  "controls": true,
+  "mobileOptIn": true,
+  "contextLossFallback": true,
+  "reducedMotionRemovesWebGL": true
+}

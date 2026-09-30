@@ -1,0 +1,12 @@
+[
+  {
+    "antipattern": "broken-image",
+    "name": "Broken or placeholder image",
+    "description": "<img> tags with empty src, missing src, or placeholder values ship as broken-image boxes. Use real images, generated assets, or remove the tag.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "/mnt/e/my-portafolio-page/app/components/mdx.tsx",
+    "line": 16,
+    "snippet": "<img alt={alt} loading=\"lazy\" {...props} />"
+  }
+]

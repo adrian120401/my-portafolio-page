@@ -1,0 +1,10 @@
+{
+  "date": "2026-09-30T16:48:37.671Z",
+  "browser": "Windows Chrome CDP dedicated profile",
+  "webgl2": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "desktopCanvas": true,
+  "assembleChangesPixels": true,
+  "layerControls": true,
+  "mobileOptIn": true,
+  "contextLossFallback": true
+}

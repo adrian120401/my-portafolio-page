@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-30T18:26:34.233Z",
+  "browser": "Linux Chrome; static hand fallback, real 3D verified separately",
+  "results": [
+    {
+      "name": "Numisoft and selected work in both locales",
+      "pass": true
+    },
+    {
+      "name": "Favicon resolves outside localized middleware",
+      "pass": true
+    },
+    {
+      "name": "Videos do not download or autoplay before play",
+      "pass": true
+    },
+    {
+      "name": "Experience follows reading position",
+      "pass": true
+    },
+    {
+      "name": "Scroll changes project depth and reading rail",
+      "pass": true
+    },
+    {
+      "name": "Gesture controls change fallback geometry via keyboard",
+      "pass": true
+    },
+    {
+      "name": "Three recorded demos play muted with native controls and pause offscreen",
+      "pass": true
+    },
+    {
+      "name": "Case pages keep demos and original LinkedIn posts",
+      "pass": true
+    },
+    {
+      "name": "Mobile hand loads only on explicit opt-in",
+      "pass": true
+    },
+    {
+      "name": "No overflow at phone, tablet and desktop widths",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion works initially and during preference changes",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "Content and LinkedIn demos remain available without JavaScript",
+      "pass": true
+    },
+    {
+      "name": "WCAG AA automated checks for new surfaces and playing state",
+      "pass": true
+    },
+    {
+      "name": "No runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "violations": []
+}

@@ -1,0 +1,37 @@
+---
+title: "Game Hands"
+description: "Un juego espacial 3D controlado con movimiento y gestos de las manos, con una capa de input reutilizable."
+summary: "Convertir el movimiento de las manos en inputs reutilizables."
+locale: "es"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+role: "Experimento personal"
+repositoryVisibility: "public"
+tags: ["Python","MediaPipe","OpenCV","OpenGL","PySide6"]
+video: "/demos/game-hands.mp4"
+videoPoster: "/demos/game-hands.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_computervision-machinelearning-python-activity-7499210438094716928-T1O3"
+repository: "https://github.com/adrian120401/game-hands"
+---
+
+## El desafío
+
+Conectar visión por computadora con controles de juego manteniendo la lógica de tracking independiente del gameplay.
+
+## Mi aporte
+
+- Construí movimiento, disparo, escudo y una acción especial cargada a partir de gestos.
+- Separé los eventos de gestos del mundo del juego y los combiné con controles de teclado.
+- Implementé suavizado, histéresis y permanencia temporal para evitar inputs inestables.
+
+## Decisiones técnicas
+
+- El controlador de gestos emite snapshots y eventos sin depender del juego.
+- OpenGL renderiza el mundo 3D y una interfaz nativa PySide6 lo aloja.
+- La cámara y el tracker asíncrono intercambian frames recientes mediante un mailbox.
+
+## Resultado
+
+Un showcase local de interacción para Windows con webcam o teclado. Explora una capa de control reutilizable más allá de un juego concreto.

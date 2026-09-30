@@ -29,8 +29,8 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-				display: ["var(--font-calsans)"],
+				sans: ["var(--font-manrope)", ...defaultTheme.fontFamily.sans],
+				display: ["var(--font-manrope)"],
 			},
 			backgroundImage: {
 				"gradient-radial":
@@ -41,16 +41,16 @@ module.exports = {
 				title: "title 3s ease-out forwards",
 				"fade-left": "fade-left 3s ease-in-out forwards",
 				"fade-right": "fade-right 3s ease-in-out forwards",
-				"background-shine": "background-shine 2s linear infinite"
+				"background-shine": "background-shine 2s linear infinite",
 			},
 			keyframes: {
 				"background-shine": {
-					"from": {
-					  "backgroundPosition": "0 0"
+					from: {
+						backgroundPosition: "0 0",
 					},
-					"to": {
-					  "backgroundPosition": "-200% 0"
-					}
+					to: {
+						backgroundPosition: "-200% 0",
+					},
 				},
 				"fade-in": {
 					"0%": {
@@ -115,6 +115,6 @@ module.exports = {
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
-		require("tailwindcss-debug-screens")
+		require("tailwindcss-debug-screens"),
 	],
 };

@@ -1,0 +1,37 @@
+---
+title: "PowerSigns"
+description: "Un experimento de escritorio que transforma gestos de las manos en fuego, rayos y efectos de energía en tiempo real."
+summary: "Gestos físicos conectados con un pipeline gráfico local."
+locale: "es"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+role: "Experimento personal"
+repositoryVisibility: "public"
+tags: ["Python","OpenCV","MediaPipe","PySide6","OpenGL"]
+video: "/demos/powersigns.mp4"
+videoPoster: "/demos/powersigns.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_computervision-python-opengl-activity-7494511969002209280-oDW0"
+repository: "https://github.com/adrian120401/powersigns"
+---
+
+## El desafío
+
+Explorar cómo el seguimiento de manos por webcam puede controlar una aplicación visual de escritorio sin navegador ni servidor web.
+
+## Mi aporte
+
+- Construí seguimiento de manos, interpretación de gestos e interfaz nativa de escritorio.
+- Conecté efectos de fuego, rayos y plasma con estados continuos de gestos.
+- Incorporé suavizado y tolerancia a pérdidas breves de tracking para estabilizar la interacción.
+
+## Decisiones técnicas
+
+- OpenCV captura frames; MediaPipe aporta landmarks; PySide6 aloja la interfaz; OpenGL renderiza los efectos.
+- Snapshots con timestamps conectan captura, tracking, simulación y render sin bloquearse entre sí.
+- El fuego combina un atlas de densidad y flujo con shaders procedurales. Otros efectos se generan proceduralmente.
+
+## Resultado
+
+Una aplicación experimental local para Windows. Requiere webcam y OpenGL 3.3. No es una entrega para cliente ni una demo web.

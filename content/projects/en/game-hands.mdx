@@ -1,0 +1,37 @@
+---
+title: "Game Hands"
+description: "A 3D space game controlled with hand movement and gestures, backed by a reusable input layer."
+summary: "Turn hand movement into reusable game inputs."
+locale: "en"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+role: "Personal experiment"
+repositoryVisibility: "public"
+tags: ["Python","MediaPipe","OpenCV","OpenGL","PySide6"]
+video: "/demos/game-hands.mp4"
+videoPoster: "/demos/game-hands.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_computervision-machinelearning-python-activity-7499210438094716928-T1O3"
+repository: "https://github.com/adrian120401/game-hands"
+---
+
+## The challenge
+
+Connect computer vision to game controls while keeping tracking logic independent of gameplay.
+
+## My contribution
+
+- Built movement, firing, shielding and a charged special action from hand gestures.
+- Separated gesture events from the game world and combined them with keyboard fallback.
+- Implemented smoothing, hysteresis and dwell to avoid unstable inputs.
+
+## Engineering decisions
+
+- The gesture controller emits snapshots and events without depending on the game.
+- OpenGL renders the 3D world; a native PySide6 shell hosts it.
+- The camera and asynchronous tracker exchange recent frames through a mailbox.
+
+## Outcome
+
+A local interaction showcase for Windows with webcam or keyboard input. It explores a control layer that can be reused beyond a single game.

@@ -1,0 +1,37 @@
+---
+title: "SIGNAL"
+description: "Local gesture recognition and a small experimental sign-language vocabulary, with tools to collect data and train classifiers."
+summary: "A data-first experiment in recognition and interaction."
+locale: "en"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+role: "Personal experiment"
+repositoryVisibility: "public"
+tags: ["Python","MediaPipe","OpenCV","scikit-learn","PySide6"]
+video: "/demos/signal.mp4"
+videoPoster: "/demos/signal.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_machinelearning-computervision-ai-activity-7491560136688279552-kH1t"
+repository: "https://github.com/adrian120401/signal"
+---
+
+## The challenge
+
+Explore recognition with a limited local vocabulary and limited data, while making uncertainty and the distinction between generic gestures and LSU explicit.
+
+## My contribution
+
+- Built a desktop interface for webcam capture, landmarks and stable predictions.
+- Added local data collection and classifier training workflows.
+- Implemented phrase/gloss construction, copying and local text-to-speech.
+
+## Engineering decisions
+
+- MediaPipe provides landmarks and a generic gesture demo. The training pipeline compares local classifiers with scikit-learn.
+- Training and evaluation split samples by recording session to reduce leakage between nearly identical frames.
+- Confidence thresholds and temporal stabilization reduce repeated or flickering predictions.
+
+## Outcome
+
+An experiment with a limited vocabulary, not a complete sign-language translator. Generic MediaPipe gestures are not presented as validated Uruguayan Sign Language (LSU). Local LSU labels require expert/source review.

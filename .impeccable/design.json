@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T18:40:56.373Z",
+  "title": "Design System: Adrián de los Reyes",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0149 253.25)",
+          "oklch(26.43% 0.0149 253.25)",
+          "oklch(37.86% 0.0149 253.25)",
+          "oklch(49.29% 0.0149 253.25)",
+          "oklch(60.71% 0.0149 253.25)",
+          "oklch(72.14% 0.0149 253.25)",
+          "oklch(83.57% 0.0149 253.25)",
+          "oklch(95.00% 0.0149 253.25)"
+        ]
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "Raised",
+        "tonalRamp": [
+          "oklch(15.00% 0.0233 254.32)",
+          "oklch(26.43% 0.0233 254.32)",
+          "oklch(37.86% 0.0233 254.32)",
+          "oklch(49.29% 0.0233 254.32)",
+          "oklch(60.71% 0.0233 254.32)",
+          "oklch(72.14% 0.0233 254.32)",
+          "oklch(83.57% 0.0233 254.32)",
+          "oklch(95.00% 0.0233 254.32)"
+        ]
+      },
+      "bone": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "tonalRamp": [
+          "oklch(15.00% 0.0093 99.99)",
+          "oklch(26.43% 0.0093 99.99)",
+          "oklch(37.86% 0.0093 99.99)",
+          "oklch(49.29% 0.0093 99.99)",
+          "oklch(60.71% 0.0093 99.99)",
+          "oklch(72.14% 0.0093 99.99)",
+          "oklch(83.57% 0.0093 99.99)",
+          "oklch(95.00% 0.0093 99.99)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.0222 252.54)",
+          "oklch(26.43% 0.0222 252.54)",
+          "oklch(37.86% 0.0222 252.54)",
+          "oklch(49.29% 0.0222 252.54)",
+          "oklch(60.71% 0.0222 252.54)",
+          "oklch(72.14% 0.0222 252.54)",
+          "oklch(83.57% 0.0222 252.54)",
+          "oklch(95.00% 0.0222 252.54)"
+        ]
+      },
+      "cyan": {
+        "role": "primary",
+        "displayName": "Cyan",
+        "tonalRamp": [
+          "oklch(15.00% 0.0736 209.05)",
+          "oklch(26.43% 0.0736 209.05)",
+          "oklch(37.86% 0.0736 209.05)",
+          "oklch(49.29% 0.0736 209.05)",
+          "oklch(60.71% 0.0736 209.05)",
+          "oklch(72.14% 0.0736 209.05)",
+          "oklch(83.57% 0.0736 209.05)",
+          "oklch(95.00% 0.0736 209.05)"
+        ]
+      },
+      "copper": {
+        "role": "secondary",
+        "displayName": "Copper",
+        "tonalRamp": [
+          "oklch(15.00% 0.0944 54.14)",
+          "oklch(26.43% 0.0944 54.14)",
+          "oklch(37.86% 0.0944 54.14)",
+          "oklch(49.29% 0.0944 54.14)",
+          "oklch(60.71% 0.0944 54.14)",
+          "oklch(72.14% 0.0944 54.14)",
+          "oklch(83.57% 0.0944 54.14)",
+          "oklch(95.00% 0.0944 54.14)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.0269 248.67)",
+          "oklch(26.43% 0.0269 248.67)",
+          "oklch(37.86% 0.0269 248.67)",
+          "oklch(49.29% 0.0269 248.67)",
+          "oklch(60.71% 0.0269 248.67)",
+          "oklch(72.14% 0.0269 248.67)",
+          "oklch(83.57% 0.0269 248.67)",
+          "oklch(95.00% 0.0269 248.67)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Production headline",
+        "purpose": "Hero headline, with responsive mobile scale."
+      },
+      "identity": {
+        "displayName": "Identity",
+        "purpose": "Owner name."
+      },
+      "technical": {
+        "displayName": "Technical data",
+        "purpose": "Architecture annotations, stacks and dates."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "state",
+        "value": "180ms ease",
+        "purpose": "Link and button feedback."
+      },
+      {
+        "name": "image-hover",
+        "value": "500ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Small screenshot enlargement."
+      },
+      {
+        "name": "svg-assembly",
+        "value": "600ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Fallback layer transition."
+      },
+      {
+        "name": "focus",
+        "value": "2px solid var(--cyan); outline-offset: 6px",
+        "purpose": "Keyboard visibility; not a shadow."
+      },
+      {
+        "name": "heading-reveal",
+        "value": "650ms cubic-bezier(.16,1,.3,1); inset(0 0 60% 0) → inset(0); translateY(14px) → 0",
+        "purpose": "One-time bounded section-heading reveal at 12% intersection; underlying HTML remains visible without JavaScript."
+      },
+      {
+        "name": "work-reveal",
+        "value": "750ms cubic-bezier(.16,1,.3,1); inset(0 22% 0 0 round 12px) → inset(0 0 0 0 round 12px)",
+        "purpose": "One-time reveal of real linked work media."
+      },
+      {
+        "name": "reading-rail",
+        "value": "2px cyan; scaleX(clamp(scrollY / scrollableDistance, 0, 1))",
+        "purpose": "Fixed noninteractive progress rail updated after scroll/resize/visibility events; hidden with reduced motion."
+      },
+      {
+        "name": "experience-reading",
+        "value": "600ms cubic-bezier(.16,1,.3,1); 1px rule scaleX(0) → scaleX(1); title color 300ms",
+        "purpose": "Highlights the experience crossing the central reading zone; its date entrance is 500ms with 14px horizontal travel."
+      },
+      {
+        "name": "work-unfold",
+        "value": "perspective(1100px); rotateX(phase × 3deg); rotateY(phase × -7deg); translateY(phase × 22px); pointer transition 350ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Nearby editorial screenshots unfold with natural scroll. Mouse contribution is ±2.5deg Y and ±1.5deg X; copy offsets up to 18px over 200ms ease-out. Mobile uses 2deg X and 12px vertical travel with stationary copy."
+      },
+      {
+        "name": "gesture-pose",
+        "value": "joint interpolation 0.14/frame; rotation interpolation 0.1/frame; static SVG pose 550ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Illustrative 21-landmark hand with three keyboard-accessible pose buttons. Lazy desktop approach loading/mobile opt-in, pixel ratio ≤1.5, visible demand-driven rendering, static fallback on failure/context loss and live removal for reduced motion."
+      },
+      {
+        "name": "demo-playback",
+        "value": "manual start; muted; playsInline; native controls; preload metadata after activation",
+        "purpose": "Real silent recordings use posters and pause offscreen or hidden, without automatic resumption. Original LinkedIn links and case context remain accessible without JavaScript."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "cancel animations; remove journey transforms; hide rail; disable gesture WebGL; CSS animation/transition none",
+        "purpose": "Live preference changes restore static reading and SVG poses. Explicit user-requested video playback remains available."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small-phone",
+        "value": "360px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "767px"
+      },
+      {
+        "name": "desktop-min",
+        "value": "768px"
+      },
+      {
+        "name": "tablet-max",
+        "value": "1100px"
+      },
+      {
+        "name": "large-desktop",
+        "value": "1500px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CV action.",
+      "html": "<button type=\"button\" class=\"ds-control ds-primary\">View resume</button>",
+      "css": ".ds-control {display:inline-flex;align-items:center;gap:18px;min-height:50px;padding:12px 21px;font:650 14px var(--font-manrope),sans-serif;border-radius:6px;cursor:pointer;transition:background-color 180ms ease,color 180ms ease;}.ds-primary {background:var(--cyan);color:var(--ink);border:0;}.ds-primary:hover {background:#b5e7ef;}.ds-control:focus-visible {outline:2px solid var(--cyan);outline-offset:6px;}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Contact or secondary destination.",
+      "html": "<button type=\"button\" class=\"ds-control ds-secondary\">Get in touch</button>",
+      "css": ".ds-control {display:inline-flex;align-items:center;gap:18px;min-height:50px;padding:12px 21px;font:650 14px var(--font-manrope),sans-serif;border-radius:6px;cursor:pointer;transition:background-color 180ms ease,color 180ms ease;}.ds-secondary {background:transparent;color:var(--bone);border:1px solid #54616e;}.ds-secondary:hover {background:var(--raised);border-color:var(--cyan);}.ds-control:focus-visible {outline:2px solid var(--cyan);outline-offset:6px;}"
+    },
+    {
+      "name": "Project filter",
+      "kind": "chip",
+      "refersTo": "filter-selected",
+      "description": "Selected gallery category.",
+      "html": "<button type=\"button\" aria-pressed=\"true\" class=\"ds-filter\">Products</button>",
+      "css": ".ds-filter {min-height:44px;padding:10px 18px;border:1px solid var(--cyan);border-radius:5px;background:var(--cyan);color:var(--ink);font:400 13px var(--font-manrope),sans-serif;cursor:pointer;}.ds-filter:hover {background:#b5e7ef;}.ds-filter:focus-visible {outline:2px solid var(--cyan);outline-offset:6px;}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Visible navigation with identity and resume action.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a class=\"ds-logo\" href=\"/en\">ADR<span>.</span></a><a href=\"/en#experience\">Experience</a><a href=\"/en/projects\">Work</a><a href=\"/en/contact\">Contact</a></nav>",
+      "css": ".ds-nav {display:flex;align-items:center;flex-wrap:wrap;gap:24px;min-height:82px;color:var(--muted);font:400 14px var(--font-manrope),sans-serif;border-bottom:1px solid var(--rule);}.ds-nav a {color:inherit;text-decoration:none;padding:10px 0;}.ds-nav a:hover {color:var(--bone);}.ds-nav a:focus-visible {outline:2px solid var(--cyan);outline-offset:6px;}.ds-logo {font-size:27px;font-weight:800;letter-spacing:-.04em;margin-right:auto;}.ds-logo span {color:var(--cyan);}"
+    },
+    {
+      "name": "Layer controls",
+      "kind": "custom",
+      "description": "HTML controls remain independent of WebGL.",
+      "html": "<div class=\"ds-layers\" role=\"group\" aria-label=\"Explore the system\"><button type=\"button\" aria-pressed=\"true\">Backend</button><button type=\"button\" aria-pressed=\"false\">Web</button><button type=\"button\" aria-pressed=\"false\">Mobile</button></div>",
+      "css": ".ds-layers {display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--rule);}.ds-layers button {background:transparent;border:0;color:var(--muted);min-height:48px;padding:14px 8px;font:400 12px var(--font-manrope),sans-serif;cursor:pointer;}.ds-layers button[aria-pressed=true] {background:#12202b;color:var(--cyan);}.ds-layers button:hover {color:var(--bone);background:var(--raised);}.ds-layers button:focus-visible {outline:2px solid var(--cyan);outline-offset:6px;}"
+    },
+    {
+      "name": "Experience reading state",
+      "kind": "custom",
+      "description": "A cyan rule and title identify the experience currently in the reading zone; the snippet shows the active state.",
+      "html": "<article class=\"ds-experience ds-reading\"><h3>Technical Lead</h3><p>Current role and concrete contribution.</p></article>",
+      "css": ".ds-experience {position:relative;border-top:1px solid var(--rule);padding-block:30px;color:var(--muted);font:400 16px/1.65 var(--font-manrope),sans-serif;}.ds-experience::before {content:\"\";position:absolute;left:0;top:-1px;width:100%;height:1px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform 600ms cubic-bezier(.16,1,.3,1);}.ds-experience.ds-reading::before {transform:scaleX(1);}.ds-experience h3 {color:var(--bone);transition:color 300ms;}.ds-experience.ds-reading h3 {color:var(--cyan);}@media(prefers-reduced-motion:reduce){.ds-experience::before,.ds-experience h3 {transition:none;}}"
+    },
+    {
+      "name": "Gesture pose controls",
+      "kind": "custom",
+      "description": "Three HTML buttons select illustrative hand poses; the snippet records their accessible control surface independently of WebGL.",
+      "html": "<div class=\"ds-gesture-controls\" role=\"group\" aria-label=\"Hand poses\"><button type=\"button\" aria-pressed=\"true\">Open hand</button><button type=\"button\" aria-pressed=\"false\">Pinch</button><button type=\"button\" aria-pressed=\"false\">Closed hand</button></div>",
+      "css": ".ds-gesture-controls {display:flex;flex-wrap:wrap;gap:8px;}.ds-gesture-controls button {border:1px solid var(--rule);background:transparent;color:var(--muted);border-radius:5px;padding:9px 13px;font:400 12px var(--font-manrope),sans-serif;min-height:44px;cursor:pointer;transition:background-color 160ms,color 160ms;}.ds-gesture-controls button[aria-pressed=true] {border-color:var(--cyan);background:var(--cyan);color:var(--ink);}.ds-gesture-controls button:hover:not([aria-pressed=true]) {color:var(--bone);border-color:var(--muted);}.ds-gesture-controls button:focus-visible {outline:2px solid var(--cyan);outline-offset:6px;}@media(prefers-reduced-motion:reduce){.ds-gesture-controls button {transition:none;}}"
+    },
+    {
+      "name": "Native demo player",
+      "kind": "custom",
+      "description": "Manual silent recording with a real poster, native controls and adjacent original post link. Runtime supplies project media and pauses offscreen/hidden; the panel shows the media shell.",
+      "html": "<div class=\"ds-demo\"><video controls muted playsinline preload=\"metadata\" aria-label=\"Silent project demo\">Your browser cannot play this demo.</video></div>",
+      "css": ".ds-demo {position:relative;aspect-ratio:1.44;background:var(--ink);border-radius:12px;overflow:hidden;}.ds-demo video {width:100%;height:100%;object-fit:contain;display:block;}.ds-demo:focus-within {outline:2px solid var(--cyan);outline-offset:5px;}.ds-demo.ds-case {aspect-ratio:1.65;}.ds-demo video:focus-visible {outline:2px solid var(--cyan);outline-offset:-2px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Dark engineering folio",
+    "overview": "A dark engineering folio: a precise product system unfolds beside a clear personal introduction. The user selected the dark layered system, delegated the composition and approved implementation. Human-readable content remains the primary interface; the model makes backend, web and mobile relationships tangible.\n\nReal work is presented through large screenshots, concise contribution statements and readable case studies. Identity is prominent and surfaces stay quiet. Motion now extends through the reading journey: experience rules, bounded heading reveals, unfolding shipped interfaces and illustrative gesture input. Silent project reels supply direct evidence of the experiments. The final build, rather than a generated screen or an earlier seed, defines the tokens below.",
+    "keyCharacteristics": [
+      "Dark ink, bone text, cyan actions and a restrained copper accent.",
+      "Manrope for identity and reading; IBM Plex Mono only for technical data.",
+      "Editorial screenshots, quiet dividers and a countable layered system.",
+      "Responsive natural scrolling, bounded motion and accessible HTML controls.",
+      "Manual silent demos with original LinkedIn posts beside the project context."
+    ],
+    "rules": [],
+    "dos": [
+      "Do use real screenshots and verified professional claims.",
+      "Do preserve equivalent Spanish and English content and working localized routes.",
+      "Do keep text and controls usable with reduced motion, no JavaScript or unavailable WebGL.",
+      "Do place project category and code visibility after the heading and summary.",
+      "Do start silent demos manually and retain native playback controls and original post links."
+    ],
+    "donts": [
+      "Don’t add eyebrows, decorative particles, gradient text or glass panels.",
+      "Don’t use fictional screens, invented metrics or inaccessible private repository links.",
+      "Don’t make navigation depend on the 3D scene.",
+      "Don’t record the 70.3% image comparison as an automatic fidelity pass."
+    ]
+  }
+}

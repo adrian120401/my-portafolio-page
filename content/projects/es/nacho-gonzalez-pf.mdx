@@ -1,0 +1,36 @@
+---
+title: "Nacho González PF"
+description: "Una plataforma de entrenamiento personalizado con experiencias de entrenador y alumno, planificación de rutinas y seguimiento."
+summary: "Desde planificar una rutina hasta registrar lo que realmente se realizó."
+locale: "es"
+category: "client"
+presentation: "featured"
+published: true
+work: true
+role: "Desarrollo Full Stack"
+repositoryVisibility: "private"
+tags: ["Next.js","TypeScript","Firebase","Firestore","Tailwind CSS"]
+featuredOrder: 3
+url: "https://www.nachogonzalezpf.uy/"
+img: "/projects/nacho-gonzalez-pf.jpg"
+---
+
+## El desafío
+
+Convertir el entrenamiento personalizado en un flujo que el entrenador pueda administrar y el alumno seguir desde el móvil. Planes, sesiones realizadas y progreso deben mantenerse separados y claros.
+
+## Mi aporte
+
+- Construí experiencias para entrenador y alumno con autenticación y acceso por roles.
+- Implementé programas, plantillas de rutinas, agenda, registro de sesiones y vistas de progreso.
+- Incorporé check-ins, feedback y alertas para facilitar el seguimiento.
+
+## Decisiones técnicas
+
+- Next.js y TypeScript organizan la interfaz y los endpoints; Firebase aporta autenticación, Firestore y almacenamiento privado de medios.
+- Los datos operativos están separados por organización. El plan original y los resultados reales de los ejercicios se guardan por separado.
+- Las sesiones completadas son inmutables. Las reglas de Firestore y las pruebas de dominio cubren permisos y comportamiento del entrenamiento.
+
+## Resultado
+
+Entregué un flujo de entrenamiento conectado, más allá de una web de presentación. La entrada pública presenta al entrenador; las pantallas operativas requieren el rol correspondiente.

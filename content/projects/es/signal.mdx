@@ -1,0 +1,37 @@
+---
+title: "SIGNAL"
+description: "Reconocimiento local de gestos y un vocabulario experimental reducido de señas, con herramientas para recolectar datos y entrenar clasificadores."
+summary: "Un experimento de reconocimiento e interacción que empieza por los datos."
+locale: "es"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+role: "Experimento personal"
+repositoryVisibility: "public"
+tags: ["Python","MediaPipe","OpenCV","scikit-learn","PySide6"]
+video: "/demos/signal.mp4"
+videoPoster: "/demos/signal.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_machinelearning-computervision-ai-activity-7491560136688279552-kH1t"
+repository: "https://github.com/adrian120401/signal"
+---
+
+## El desafío
+
+Explorar reconocimiento con un vocabulario local reducido y pocos datos, haciendo explícitas la incertidumbre y la diferencia entre gestos genéricos y LSU.
+
+## Mi aporte
+
+- Construí una interfaz de escritorio para captura, landmarks y predicciones estables.
+- Incorporé flujos locales de recolección de datos y entrenamiento de clasificadores.
+- Implementé construcción de secuencias de glosas, copiado y reproducción por voz local.
+
+## Decisiones técnicas
+
+- MediaPipe aporta landmarks y una demo de gestos genéricos. El pipeline de entrenamiento compara clasificadores locales con scikit-learn.
+- Entrenamiento y evaluación separan muestras por sesión de captura para reducir filtración entre frames casi idénticos.
+- Umbrales de confianza y estabilización temporal reducen repeticiones y parpadeos.
+
+## Resultado
+
+Un experimento con vocabulario limitado, no un traductor completo de lengua de señas. Los gestos genéricos de MediaPipe no se presentan como Lengua de Señas Uruguaya (LSU) validada. Las etiquetas LSU locales requieren revisión de fuentes o especialistas.
