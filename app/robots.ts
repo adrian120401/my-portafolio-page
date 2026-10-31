@@ -5,9 +5,9 @@ export default function robots(): MetadataRoute.Robots {
 	return {
 		rules: {
 			userAgent: "*",
-			...(process.env.VERCEL_ENV === "preview"
-				? { disallow: "/" }
-				: { allow: "/", disallow: "/api/" }),
+			// Crawlers must be able to read a preview page's noindex metadata.
+			allow: "/",
+			disallow: "/api/",
 		},
 		sitemap: `${siteUrl}/sitemap.xml`,
 	};

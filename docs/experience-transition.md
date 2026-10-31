@@ -39,8 +39,7 @@ and the complete accessible portfolio content. No wheel or touch input is interc
   coordinates, endpoints, reversal and exact progress settlement checks.
 - `pnpm exec tsc --noEmit` and Rome checks on all six changed TypeScript files pass.
   Repository-wide Rome still reports 10 existing errors in chat, API and MDX code.
-- `pnpm build` was blocked by sandbox EPERM creating generated `.next` directories;
-  the request to run that build outside the sandbox was declined. Production build
-  validation remains outstanding.
+- The initial sandbox build was blocked by EPERM. A subsequent authorized
+  production build passed during the SEO work, including all localized routes.
 
 The Lab's Three.js experiment and its dependencies remain in place.

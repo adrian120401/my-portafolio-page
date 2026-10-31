@@ -21,8 +21,9 @@ en `util/i18n.ts`; `util/metadata.ts` genera los metadatos completos de cada pá
 - `app/robots.ts` y `app/sitemap.ts` usan el mismo dominio. El sitemap tiene 40
   URLs indexables; los cuatro casos ocultos conservan `noindex,follow` y no se
   incluyen. Las URLs con filtros canonizan al índice de proyectos.
-- Los despliegues con `VERCEL_ENV=preview` tienen `noindex` y robots restrictivo.
-  Las imágenes sociales de producción son públicas y rastreables.
+- Los despliegues con `VERCEL_ENV=preview` tienen `noindex` y permiten rastrear
+  el HTML para que los bots puedan leer esa directiva. Las imágenes sociales de
+  producción son públicas y rastreables.
 - `next.config.mjs` redirige el host exacto anterior
   `adriandelosreyes.vercel.app` al dominio canónico con 308, conservando rutas y
   parámetros. Los demás hosts de preview y localhost no se redirigen.
@@ -58,6 +59,11 @@ El verificador recorre las 44 páginas localizadas, valida metadatos y JSON-LD,
 descarga seis previews y comprueba la firma PNG y sus dimensiones reales,
 contrasta el sitemap completo y prueba filtros y redirecciones. Escribe el informe
 y las imágenes de revisión en `.impeccable/build/`.
+
+La verificación pasó también contra `pnpm build` + `pnpm start`: 44 páginas,
+seis PNG y 40 entradas del sitemap. TypeScript y Rome pasan en los archivos
+modificados. El chequeo global de Rome conserva los diez errores previos en chat,
+API y el helper MDX.
 
 Referencias: [migraciones de dominio de Google](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes),
 [versiones localizadas](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites),
