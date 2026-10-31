@@ -1,0 +1,38 @@
+---
+title: "Draw to Life"
+description: "A local experiment that turns drawings into animated 2D pets, combining image analysis, local AI and a layered character player."
+summary: "Turn a drawing into a pet you can feed, pet and play with."
+locale: "en"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+featuredOrder: 11
+role: "Personal experiment"
+repositoryVisibility: "public"
+tags: ["Python", "Gradio", "OpenCV", "Diffusers", "Canvas 2D"]
+img: "/demos/draw-to-life.jpg"
+video: "/demos/draw-to-life.mp4"
+videoPoster: "/demos/draw-to-life.jpg"
+repository: "https://github.com/adrian120401/draw-to-life"
+---
+
+## The challenge
+
+Take a photographed drawing beyond a static image: create a character that keeps a consistent appearance while blinking, moving and reacting to interaction.
+
+## My contribution
+
+- Built a flow from uploading a drawing to analyzing it and playing with an animated pet.
+- Implemented feeding, petting, tickling, a ball and a bubble game in a responsive browser scene.
+- Added export of a portable character package with textures, pivots, animation data and an offline player.
+
+## Engineering decisions
+
+- Combined OpenCV and Pillow image processing with local vision and diffusion models for character analysis and texture generation.
+- Separated the character's rig, masks and expressions so recoloring preserves its joints and animation.
+- Supported prepared characters as well as a local model pipeline for other drawings. The recorded demo uses a prepared character rig and transfers colors from the drawing; that path does not run diffusion.
+
+## Outcome
+
+A personal experiment connecting drawings, local image processing and interactive 2D animation. Generated and prepared assets retain provenance in their character packages. The public repository documents setup, supported modes and their limitations.

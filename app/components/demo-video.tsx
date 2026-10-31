@@ -38,7 +38,7 @@ export function DemoVideo({
 	return (
 		<div className="demo-video">
 			{started ? (
-				// Silent screen demos without speech; adjacent project text explains each interaction.
+				// Recorded demos start muted; adjacent project text explains each interaction.
 				<video
 					ref={video}
 					src={src}

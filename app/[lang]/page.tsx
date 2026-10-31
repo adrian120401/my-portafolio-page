@@ -7,7 +7,7 @@ import { getDictionary, isLocale, resumeLinks, contact } from "@/util/i18n";
 import { languageAlternates } from "@/util/metadata";
 import { featuredProjects, projectsFor } from "@/util/projects";
 import { ProjectPreview } from "@/app/components/project-preview";
-import { SystemExplorer } from "@/app/components/system-explorer";
+import { ExperienceTransition } from "@/app/components/experience-transition";
 import { GestureExplorer } from "@/app/components/gesture-explorer";
 import {
 	experience,
@@ -34,34 +34,44 @@ export default function Home({ params }: { params: { lang: string } }) {
 		<main id="main">
 			<section className="hero shell" aria-labelledby="hero-title">
 				<div className="hero-copy">
-					<h1 id="hero-title">{d.hero.title.join(" ")}</h1>
-					<div className="hero-identity">
-						<p className="hero-name">{d.hero.name}</p>
-						<p className="hero-role">{d.hero.role}</p>
-						<p className="hero-current">
-							<span className="status-dot" />
-							{d.hero.current}
-						</p>
+					<h1 id="hero-title">
+						{d.hero.title.map((line) => (
+							<span key={line}>{line} </span>
+						))}
+					</h1>
+					<div className="hero-details">
+						<div className="hero-identity">
+							<p className="hero-name">{d.hero.name}</p>
+							<p className="hero-role">{d.hero.role}</p>
+							<p className="hero-current">
+								<span className="status-dot" />
+								{d.hero.current}
+							</p>
+						</div>
+						<div className="hero-summary">
+							<p className="hero-intro">{d.hero.intro}</p>
+							<div className="actions">
+								<a
+									className="button primary"
+									href={resumeLinks[locale]}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{d.nav.resume}
+									<ArrowUpRight size={18} aria-hidden="true" />
+								</a>
+								<Link className="button secondary" href={`/${locale}/contact`}>
+									{d.hero.contact}
+									<ArrowRight size={18} aria-hidden="true" />
+								</Link>
+							</div>
+							<p className="location">{d.hero.location}</p>
+							<p className="hero-stack">
+								Java / NestJS · React / TypeScript · React Native / Expo
+							</p>
+						</div>
 					</div>
-					<p className="hero-intro">{d.hero.intro}</p>
-					<div className="actions">
-						<a
-							className="button primary"
-							href={resumeLinks[locale]}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							{d.nav.resume}
-							<ArrowUpRight size={18} aria-hidden="true" />
-						</a>
-						<Link className="button secondary" href={`/${locale}/contact`}>
-							{d.hero.contact}
-							<ArrowRight size={18} aria-hidden="true" />
-						</Link>
-					</div>
-					<p className="location">{d.hero.location}</p>
 				</div>
-				<SystemExplorer locale={locale} />
 			</section>
 			<div className="proof-strip shell">
 				<p>{d.hero.proof}</p>
@@ -71,72 +81,75 @@ export default function Home({ params }: { params: { lang: string } }) {
 				</Link>
 			</div>
 			<section
-				id="experience"
-				className="section shell"
+				className="experience-section"
 				aria-labelledby="experience-title"
 			>
-				<div className="section-heading">
-					<h2 id="experience-title">{d.experience.title}</h2>
-					<p>{d.experience.intro}</p>
-				</div>
-				<div className="experience-list">
-					{experience.map((job) => (
-						<article className="experience-row" key={job.company}>
-							<div className="experience-date">
-								<time dateTime={job.start}>
-									{formatExperienceDate(job.start, locale)}
-								</time>
-								<span> — </span>
-								{job.end ? (
-									<time dateTime={job.end}>
-										{formatExperienceDate(job.end, locale)}
+				<ExperienceTransition locale={locale}>
+					<div className="section-heading shell">
+						<h2 id="experience-title">{d.experience.title}</h2>
+						<p>{d.experience.intro}</p>
+					</div>
+				</ExperienceTransition>
+				<div id="experience" className="shell experience-content">
+					<div className="experience-list">
+						{experience.map((job) => (
+							<article className="experience-row" key={job.company}>
+								<div className="experience-date">
+									<time dateTime={job.start}>
+										{formatExperienceDate(job.start, locale)}
 									</time>
-								) : (
-									d.experience.present
-								)}
-							</div>
-							<div className="experience-body">
-								<div className="experience-title">
-									<h3>{job.company}</h3>
-									<p>{job.role[locale]}</p>
-								</div>
-								<p>{job.summary[locale]}</p>
-								<details>
-									<summary>{d.experience.details}</summary>
-									<ul>
-										{job.points[locale].map((point) => (
-											<li key={point}>{point}</li>
-										))}
-									</ul>
-								</details>
-								<div className="experience-bottom">
-									<p className="stack-line">{job.stack.join(" / ")}</p>
-									{job.case && (
-										<Link
-											className="text-link"
-											href={`/${locale}/projects/${job.case}`}
-										>
-											{d.work.case}
-											<ArrowUpRight size={16} aria-hidden="true" />
-										</Link>
+									<span> — </span>
+									{job.end ? (
+										<time dateTime={job.end}>
+											{formatExperienceDate(job.end, locale)}
+										</time>
+									) : (
+										d.experience.present
 									)}
 								</div>
-							</div>
-						</article>
-					))}
+								<div className="experience-body">
+									<div className="experience-title">
+										<h3>{job.company}</h3>
+										<p>{job.role[locale]}</p>
+									</div>
+									<p>{job.summary[locale]}</p>
+									<details>
+										<summary>{d.experience.details}</summary>
+										<ul>
+											{job.points[locale].map((point) => (
+												<li key={point}>{point}</li>
+											))}
+										</ul>
+									</details>
+									<div className="experience-bottom">
+										<p className="stack-line">{job.stack.join(" / ")}</p>
+										{job.case && (
+											<Link
+												className="text-link"
+												href={`/${locale}/projects/${job.case}`}
+											>
+												{d.work.case}
+												<ArrowUpRight size={16} aria-hidden="true" />
+											</Link>
+										)}
+									</div>
+								</div>
+							</article>
+						))}
+					</div>
+					<p className="freelance-note">
+						{d.experience.freelance}{" "}
+						<a
+							className="text-link"
+							href="https://numisoft.dev/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{d.experience.consulting}
+							<ArrowUpRight size={15} aria-hidden="true" />
+						</a>
+					</p>
 				</div>
-				<p className="freelance-note">
-					{d.experience.freelance}{" "}
-					<a
-						className="text-link"
-						href="https://numisoft.dev/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						{d.experience.consulting}
-						<ArrowUpRight size={15} aria-hidden="true" />
-					</a>
-				</p>
 			</section>
 			<section
 				id="work"
@@ -203,8 +216,8 @@ export default function Home({ params }: { params: { lang: string } }) {
 					<Image
 						src="/portrait.png"
 						alt={d.about.portrait}
-						width={450}
-						height={500}
+						width={675}
+						height={675}
 						sizes="(max-width: 760px) 80vw, 360px"
 						className="portrait"
 					/>

@@ -1,0 +1,39 @@
+---
+title: "Holographic Gestures"
+description: "Un experimento de escritorio que usa seguimiento de manos para manipular hologramas 3D e inspeccionar los componentes de un vehículo."
+summary: "Mover, rotar y desarmar modelos 3D con las manos."
+locale: "es"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+featuredOrder: 10
+role: "Experimento personal"
+repositoryVisibility: "public"
+tags: ["Python", "MediaPipe", "OpenCV", "ModernGL", "PySide6"]
+img: "/demos/holographic-gestures.jpg"
+video: "/demos/holographic-gestures.mp4"
+videoPoster: "/demos/holographic-gestures.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_computervision-python-opengl-ugcPost-7521670518392090624-Aidj/"
+repository: "https://github.com/adrian120401/holographic-gestures"
+---
+
+## El desafío
+
+Hacer que manipular objetos 3D mediante una webcam se sienta directo, sin que el movimiento, la rotación, la escala y la selección de modelos compitan entre sí.
+
+## Mi aporte
+
+- Construí gestos para mover, rotar y escalar hologramas, con desintegración y reconstrucción mediante partículas.
+- Agregué un modo de inspección que separa un vehículo en 12 conjuntos, selecciona las piezas visibles por profundidad y permite inspeccionarlas y reensamblarlas.
+- Conservé la imagen natural de la cámara e incorporé controles de teclado junto al seguimiento de manos.
+
+## Decisiones técnicas
+
+- Separé captura, tracking, interpretación de gestos y estado de la escena del renderizado.
+- Usé tiempos de confirmación, histéresis y recalibración de anclas para evitar gestos en conflicto y saltos al recuperar el tracking.
+- Utilicé ModernGL y GLSL para los materiales holográficos y las partículas en GPU; la selección de piezas usa un framebuffer de IDs con profundidad.
+
+## Resultado
+
+Un prototipo de escritorio local que combina visión por computadora y gráficos 3D. La demo grabada muestra la aplicación; el reproductor del portfolio no realiza tracking en vivo. La instalación, los gestos y los detalles de implementación están en el repositorio público.

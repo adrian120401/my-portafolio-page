@@ -86,7 +86,7 @@ export function PortfolioMotion() {
 			function collect() {
 				for (const element of Array.from(
 					scope?.querySelectorAll(
-						".section-heading h2, .about-intro h2, .related h2, .resume-downloads h2, .project-image-link, .experience-row, .project-editorial",
+						".section-heading h2:not(#experience-title), .about-intro h2, .related h2, .resume-downloads h2, .project-image-link, .experience-row, .project-editorial",
 					) ?? [],
 				)) {
 					if (observed.has(element)) continue;

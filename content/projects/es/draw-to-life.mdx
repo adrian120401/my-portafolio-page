@@ -1,0 +1,38 @@
+---
+title: "Draw to Life"
+description: "Un experimento local que transforma dibujos en mascotas 2D animadas, combinando análisis de imágenes, IA local y un reproductor de personajes por capas."
+summary: "Convertir un dibujo en una mascota para alimentar, acariciar y jugar."
+locale: "es"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+featuredOrder: 11
+role: "Experimento personal"
+repositoryVisibility: "public"
+tags: ["Python", "Gradio", "OpenCV", "Diffusers", "Canvas 2D"]
+img: "/demos/draw-to-life.jpg"
+video: "/demos/draw-to-life.mp4"
+videoPoster: "/demos/draw-to-life.jpg"
+repository: "https://github.com/adrian120401/draw-to-life"
+---
+
+## El desafío
+
+Llevar la foto de un dibujo más allá de una imagen estática: crear un personaje que mantenga su apariencia al parpadear, moverse y reaccionar a la interacción.
+
+## Mi aporte
+
+- Construí el flujo de subir un dibujo, analizarlo y jugar con una mascota animada.
+- Implementé comida, caricias, cosquillas, una pelota y un juego de burbujas en una escena web responsive.
+- Agregué la exportación de un paquete portable con texturas, pivotes, datos de animación y un reproductor sin conexión.
+
+## Decisiones técnicas
+
+- Combiné procesamiento de imágenes con OpenCV y Pillow con modelos locales de visión y difusión para analizar personajes y generar texturas.
+- Separé el rig, las máscaras y las expresiones para que los cambios de color conserven las articulaciones y la animación.
+- Incorporé personajes preparados y un flujo con modelos locales para otros dibujos. La demo grabada usa un rig preparado y transfiere los colores del dibujo; ese recorrido no ejecuta difusión.
+
+## Resultado
+
+Un experimento personal que conecta dibujos, procesamiento local de imágenes y animación 2D interactiva. Los recursos generados y preparados conservan su procedencia en el paquete del personaje. El repositorio público documenta la instalación, los modos disponibles y sus limitaciones.

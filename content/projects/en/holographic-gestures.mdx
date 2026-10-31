@@ -1,0 +1,39 @@
+---
+title: "Holographic Gestures"
+description: "A desktop experiment that uses hand tracking to manipulate 3D holograms and inspect a vehicle's components."
+summary: "Move, rotate and take apart 3D models with your hands."
+locale: "en"
+category: "lab"
+presentation: "listed"
+published: true
+work: false
+featuredOrder: 10
+role: "Personal experiment"
+repositoryVisibility: "public"
+tags: ["Python", "MediaPipe", "OpenCV", "ModernGL", "PySide6"]
+img: "/demos/holographic-gestures.jpg"
+video: "/demos/holographic-gestures.mp4"
+videoPoster: "/demos/holographic-gestures.jpg"
+socialPost: "https://www.linkedin.com/posts/adriandelosreyess_computervision-python-opengl-ugcPost-7521670518392090624-Aidj/"
+repository: "https://github.com/adrian120401/holographic-gestures"
+---
+
+## The challenge
+
+Make 3D manipulation feel direct through a webcam, while keeping movement, rotation, scaling and model selection from competing with each other.
+
+## My contribution
+
+- Built hand gestures for moving, rotating and scaling holograms, with particle-based disintegration and reconstruction.
+- Added an inspection mode that separates a vehicle into 12 assemblies, selects visible parts by depth and lets the user inspect and reassemble them.
+- Kept the camera's natural image visible and provided keyboard controls alongside hand tracking.
+
+## Engineering decisions
+
+- Separated capture, tracking, gesture interpretation and scene state from rendering.
+- Used confirmation times, hysteresis and recalibrated anchors to avoid conflicting gestures and jumps after tracking loss.
+- Used ModernGL and GLSL for the holographic materials and GPU particles; inspection selection uses an ID framebuffer with depth.
+
+## Outcome
+
+A local desktop prototype combining computer vision and 3D graphics. The recorded demo shows the application; the portfolio player does not perform live webcam tracking. Setup, gestures and implementation details are available in the public repository.
