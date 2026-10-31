@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale } from "@/util/i18n";
-import { languageAlternates } from "@/util/metadata";
+import { pageMetadata } from "@/util/metadata";
+import { pageStructuredData } from "@/util/structured-data";
+import { JsonLd } from "@/app/components/json-ld";
 import { projectsFor } from "@/util/projects";
 import { ProjectGallery } from "@/app/components/project-gallery";
 import { ProjectPreview } from "@/app/components/project-preview";
@@ -10,11 +12,13 @@ export function generateMetadata({
 }: { params: { lang: string } }): Metadata {
 	if (!isLocale(params.lang)) return {};
 	const d = getDictionary(params.lang);
-	return {
+	return pageMetadata({
+		locale: params.lang,
 		title: d.meta.work,
-		description: d.work.intro,
-		alternates: languageAlternates(params.lang, "/projects"),
-	};
+		description: d.meta.workDescription,
+		path: "/projects",
+		imageTitle: d.work.title,
+	});
 }
 export default function ProjectsPage({
 	params,
@@ -29,6 +33,14 @@ export default function ProjectsPage({
 		.map(({ body, _raw, _id, type, ...preview }) => preview);
 	return (
 		<main id="main" className="shell page-main">
+			<JsonLd
+				data={pageStructuredData(
+					locale,
+					d.meta.work,
+					d.meta.workDescription,
+					"/projects",
+				)}
+			/>
 			<div className="page-heading">
 				<h1>{d.work.title}</h1>
 				<p>{d.work.intro}</p>

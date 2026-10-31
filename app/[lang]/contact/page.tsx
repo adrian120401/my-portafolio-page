@@ -2,18 +2,22 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { getDictionary, isLocale, contact, resumeLinks } from "@/util/i18n";
-import { languageAlternates } from "@/util/metadata";
+import { pageMetadata } from "@/util/metadata";
+import { pageStructuredData } from "@/util/structured-data";
+import { JsonLd } from "@/app/components/json-ld";
 import { CopyEmail } from "@/app/components/copy-email";
 export function generateMetadata({
 	params,
 }: { params: { lang: string } }): Metadata {
 	if (!isLocale(params.lang)) return {};
 	const d = getDictionary(params.lang);
-	return {
+	return pageMetadata({
+		locale: params.lang,
 		title: d.meta.contact,
-		description: d.contact.intro,
-		alternates: languageAlternates(params.lang, "/contact"),
-	};
+		description: d.meta.contactDescription,
+		path: "/contact",
+		imageTitle: d.contact.title,
+	});
 }
 export default function ContactPage({ params }: { params: { lang: string } }) {
 	if (!isLocale(params.lang)) notFound();
@@ -21,6 +25,14 @@ export default function ContactPage({ params }: { params: { lang: string } }) {
 	const d = getDictionary(locale);
 	return (
 		<main id="main" className="shell page-main contact-page">
+			<JsonLd
+				data={pageStructuredData(
+					locale,
+					d.meta.contact,
+					d.meta.contactDescription,
+					"/contact",
+				)}
+			/>
 			<div className="page-heading">
 				<h1>{d.contact.title}</h1>
 				<p>{d.contact.intro}</p>

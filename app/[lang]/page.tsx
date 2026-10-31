@@ -4,7 +4,9 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, resumeLinks, contact } from "@/util/i18n";
-import { languageAlternates } from "@/util/metadata";
+import { pageMetadata } from "@/util/metadata";
+import { pageStructuredData } from "@/util/structured-data";
+import { JsonLd } from "@/app/components/json-ld";
 import { featuredProjects, projectsFor } from "@/util/projects";
 import { ProjectPreview } from "@/app/components/project-preview";
 import { ExperienceTransition } from "@/app/components/experience-transition";
@@ -19,9 +21,14 @@ import {
 export function generateMetadata({
 	params,
 }: { params: { lang: string } }): Metadata {
-	return isLocale(params.lang)
-		? { alternates: languageAlternates(params.lang) }
-		: {};
+	if (!isLocale(params.lang)) return {};
+	const d = getDictionary(params.lang);
+	return pageMetadata({
+		locale: params.lang,
+		title: d.meta.title,
+		description: d.meta.description,
+		imageTitle: d.hero.title.join(" "),
+	});
 }
 export default function Home({ params }: { params: { lang: string } }) {
 	if (!isLocale(params.lang)) notFound();
@@ -32,6 +39,9 @@ export default function Home({ params }: { params: { lang: string } }) {
 		.sort((a, b) => Number(Boolean(b.video)) - Number(Boolean(a.video)));
 	return (
 		<main id="main">
+			<JsonLd
+				data={pageStructuredData(locale, d.meta.title, d.meta.description)}
+			/>
 			<section className="hero shell" aria-labelledby="hero-title">
 				<div className="hero-copy">
 					<h1 id="hero-title">

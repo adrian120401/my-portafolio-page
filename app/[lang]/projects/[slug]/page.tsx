@@ -4,7 +4,9 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { allProjects } from "contentlayer/generated";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getDictionary, isLocale } from "@/util/i18n";
-import { languageAlternates } from "@/util/metadata";
+import { pageMetadata } from "@/util/metadata";
+import { projectStructuredData } from "@/util/structured-data";
+import { JsonLd } from "@/app/components/json-ld";
 import { projectAliases, projectsFor } from "@/util/projects";
 import { ProjectVisual } from "@/app/components/project-visual";
 import { ProjectPreview } from "@/app/components/project-preview";
@@ -24,20 +26,13 @@ function getProject(params: Props["params"]) {
 export function generateMetadata({ params }: Props): Metadata {
 	const p = getProject(params);
 	if (!p || !isLocale(params.lang)) return {};
-	return {
+	return pageMetadata({
+		locale: params.lang,
 		title: p.title,
 		description: p.description,
-		alternates: languageAlternates(params.lang, `/projects/${p.slug}`),
-		robots:
-			p.presentation === "hidden" ? { index: false, follow: true } : undefined,
-		openGraph: {
-			title: p.title,
-			description: p.description,
-			images: p.img
-				? [{ url: p.img, alt: p.title }]
-				: [{ url: "/og-me.jpg", alt: p.title }],
-		},
-	};
+		path: `/projects/${p.slug}`,
+		noIndex: p.presentation === "hidden",
+	});
 }
 export default function CasePage({ params }: Props) {
 	if (!isLocale(params.lang)) notFound();
@@ -59,6 +54,7 @@ export default function CasePage({ params }: Props) {
 		.slice(0, 3);
 	return (
 		<main id="main" className="shell page-main case-page">
+			<JsonLd data={projectStructuredData(project)} />
 			<Link className="text-link back-link" href={`/${locale}/projects`}>
 				<ArrowLeft size={17} aria-hidden="true" />
 				{d.work.back}

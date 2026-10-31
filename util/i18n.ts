@@ -1,6 +1,6 @@
 export const locales = ["en", "es"] as const;
 export type Locale = typeof locales[number];
-export const siteUrl = "https://adriandelosreyes.vercel.app";
+export const siteUrl = "https://www.adriandelosreyes.me";
 
 export function isLocale(value: string): value is Locale {
 	return value === "en" || value === "es";
@@ -100,7 +100,8 @@ const en = {
 		play: "Play demo",
 		demo: "Recorded demo",
 		post: "Watch the LinkedIn post",
-		videoFallback: "Video unavailable. Explore the project details and source code.",
+		videoFallback:
+			"Video unavailable. Explore the project details and source code.",
 		gestureTitle: "From gesture to interaction.",
 		gestureIntro:
 			"A hand in motion becomes an input. Explore the illustrative tracking model, then watch the experiments below.",
@@ -156,8 +157,12 @@ const en = {
 		title: "Adrián de los Reyes | Full Stack & Mobile Developer",
 		description:
 			"Full Stack & Mobile Developer and Technical Lead from Uruguay. Explore my work in mobile, backend, SaaS products and technical leadership.",
-		work: "Projects",
+		work: "Software projects",
+		workDescription:
+			"Explore Adrián de los Reyes's software projects: mobile apps, backend services, client platforms and experiments in computer vision and local AI.",
 		contact: "Contact",
+		contactDescription:
+			"Contact Adrián de los Reyes, Full Stack & Mobile Developer in Uruguay. View my resume or discuss a role, a product or a technical challenge.",
 		lab: "Laboratory",
 	},
 };
@@ -246,7 +251,8 @@ const es: typeof en = {
 		play: "Reproducir demo",
 		demo: "Demo grabada",
 		post: "Ver el post en LinkedIn",
-		videoFallback: "Video no disponible. Explora los detalles y el código del proyecto.",
+		videoFallback:
+			"Video no disponible. Explora los detalles y el código del proyecto.",
 		gestureTitle: "Del gesto a la interacción.",
 		gestureIntro:
 			"Una mano en movimiento se convierte en un input. Explora el modelo ilustrativo de tracking y mira los experimentos debajo.",
@@ -302,8 +308,12 @@ const es: typeof en = {
 		title: "Adrián de los Reyes | Desarrollador Full Stack y Mobile",
 		description:
 			"Desarrollador Full Stack y Mobile y líder técnico de Uruguay. Conocé mi trabajo en mobile, backend, productos SaaS y liderazgo técnico.",
-		work: "Proyectos",
+		work: "Proyectos de software",
+		workDescription:
+			"Conocé los proyectos de Adrián de los Reyes: apps móviles, servicios backend, plataformas para clientes y experimentos de visión por computadora e IA local.",
 		contact: "Contacto",
+		contactDescription:
+			"Contactá a Adrián de los Reyes, desarrollador Full Stack y Mobile en Uruguay. Consultá mi CV o conversemos sobre oportunidades y desafíos técnicos.",
 		lab: "Laboratorio",
 	},
 };

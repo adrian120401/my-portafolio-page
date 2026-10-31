@@ -6,6 +6,9 @@ import { Analytics } from "@vercel/analytics/react";
 import { PortfolioNav } from "@/app/components/portfolio-nav";
 import { PortfolioFooter } from "@/app/components/portfolio-footer";
 import { PortfolioMotion } from "@/app/components/portfolio-motion";
+import { JsonLd } from "@/app/components/json-ld";
+import { pageMetadata } from "@/util/metadata";
+import { siteStructuredData } from "@/util/structured-data";
 import { getDictionary, isLocale, locales, siteUrl } from "@/util/i18n";
 
 const manrope = localFont({
@@ -29,29 +32,22 @@ export function generateMetadata({
 	if (!isLocale(params.lang)) return {};
 	const { meta } = getDictionary(params.lang);
 	return {
+		...pageMetadata({
+			locale: params.lang,
+			title: meta.title,
+			description: meta.description,
+		}),
 		metadataBase: new URL(siteUrl),
 		title: { default: meta.title, template: "%s | Adrián de los Reyes" },
 		description: meta.description,
 		authors: [{ name: "Adrián de los Reyes" }],
 		creator: "Adrián de los Reyes",
 		icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
-		openGraph: {
-			title: meta.title,
-			description: meta.description,
-			siteName: "Adrián de los Reyes",
-			locale: params.lang === "es" ? "es_UY" : "en_US",
-			type: "website",
-			images: [
-				{
-					url: "/og-me.jpg",
-					width: 1200,
-					height: 630,
-					alt: "Adrián de los Reyes",
-				},
-			],
+		verification: {
+			google:
+				process.env.GOOGLE_SITE_VERIFICATION ||
+				"QQfzSez_Ke5ABriqhqd-LrL2b_8liIiAJS9TU2GCqNc",
 		},
-		twitter: { card: "summary_large_image", images: ["/og-me.jpg"] },
-		verification: { google: "QQfzSez_Ke5ABriqhqd-LrL2b_8liIiAJS9TU2GCqNc" },
 	};
 }
 export default function LocaleLayout({
@@ -62,6 +58,7 @@ export default function LocaleLayout({
 	return (
 		<html lang={params.lang} className={`${manrope.variable} ${mono.variable}`}>
 			<body>
+				<JsonLd data={siteStructuredData(params.lang)} />
 				<PortfolioMotion />
 				<PortfolioNav locale={params.lang} />
 				{children}
